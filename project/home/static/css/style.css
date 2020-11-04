@@ -4003,18 +4003,6 @@ input[type=button].btn-block {
   line-height: inherit;
   white-space: nowrap;
 }
-.navbar-brand:hover, .navbar-brand:focus {
-  text-decoration: none;
-}
-
-.navbar-brand img {
-  width: 20%;
-  margin-right: 30px;
-}
-
-.navbar-brand p {
-  margin-top: 1rem;
-}
 
 .navbar-nav {
   display: flex;
