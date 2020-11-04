@@ -1,0 +1,116 @@
+/* Colors */
+:root {
+    --main-pb-color: #C45525;
+    --secondary-pb-color: #345A61;
+    --extra-pb-color: #86EBE6;
+    --caramel-pb-color: #DE9440;
+    --biscuit-pb-color: #E8A75D;
+}
+
+a {
+    color: var(--main-pb-color) !important;
+}
+a:hover {
+    color: var(--caramel-pb-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--main-pb-color) !important;
+    border-color: var(--main-pb-color) !important;
+}
+.btn-primary:hover {
+    background-color: var(--caramel-pb-color) !important;
+    border-color: var(--caramel-pb-color) !important;
+}
+.bg-primary {
+    background-color: var(--main-pb-color) !important;
+}
+.bg-dark {
+    background-color: var(--secondary-pb-color) !important;
+}
+
+/* Fonts */
+p, a, span, li {
+    font-family: "Scope One", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Customs */
+.navbar-brand:hover, .navbar-brand:focus {
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    width: 20%;
+    margin-right: 30px;
+}
+
+.navbar-brand p {
+    margin-top: 1rem;
+}
+
+#about figure {
+    width: 100%;
+    height: 100%;
+}
+#about figure figcaption {
+    font: italic smaller sans-serif;
+    padding: 3px;
+    color: #fff;
+}
+
+
+header.masthead-legal-notice {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/photo3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+header.masthead-legal-notice h1 {
+    font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+    header.masthead-legal-notice {
+        height: 69%;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+    header.masthead-legal-notice p {
+        font-size: 1.15rem;
+    }
+    header.masthead-legal-notice h1 {
+        font-size: 3rem;
+    }
+}
+.navbar-collapse i {
+    width: 30px;
+}
+
+.navbar-collapse svg:hover {
+    fill: var(--caramel-pb-color);
+}
+#navbarResponsive form button {
+    display: none;
+}
+.search-query {
+    background-color: #bec0c0;
+}
+.identity-pb {
+    list-style: none;
+    padding-left: 0 !important;
+    text-align: justify;
+}
+.identity-pb li {
+    font-style: italic;
+}
+.identity-pb li span {
+    font-weight: bold;
+    font-style: normal;
+}

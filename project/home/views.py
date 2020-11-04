@@ -1,4 +1,3 @@
-from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import View
 
@@ -6,5 +5,12 @@ from django.views.generic import View
 class IndexView(View):
     template_name = 'index.html'
 
-    def get(self, request: HttpRequest) -> HttpResponse:
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+class LegalNoticeView(View):
+    template_name = 'legal_notice.html'
+
+    def get(self, request):
         return render(request, self.template_name)

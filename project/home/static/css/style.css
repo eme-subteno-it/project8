@@ -4032,22 +4032,6 @@ input[type=button].btn-block {
   align-items: center;
 }
 
-.navbar-collapse i {
-  width: 30px;
-}
-
-.navbar-collapse svg:hover {
-  fill: rgb(244, 98, 58, .6);
-}
-#navbarResponsive form button {
-  display: none;
-}
-.search-query {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid black;
-}
-
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;

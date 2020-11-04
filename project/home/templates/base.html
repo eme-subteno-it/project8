@@ -37,13 +37,16 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png' %}">
         <meta name="theme-color" content="#ffffff">
+        <!-- Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     </head>
 
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger row align-items-center" href="#page-top">
+                <a class="navbar-brand js-scroll-trigger row align-items-center" href="/">
                     <img class="img img-responsive" src="{% static 'img/logo.png' %}" alt="Logo de PurBeurre">
                     Pur Beurre
                 </a>
@@ -69,7 +72,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 text-center">
-                        <a href="/legal-notices">Mentions légales</a>
+                        <a href="{% url 'home:legal_notices' %}">Mentions légales</a>
                     </div>
                     <div class="col-6 text-center">
                         <a href="{% url 'home:home' %}#contact">Contact</a>
