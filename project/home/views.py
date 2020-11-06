@@ -1,16 +1,16 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.views import View
 
 
 class IndexView(View):
-    template_name = 'index.html'
+    template_name = 'home/index.html'
 
     def get(self, request):
         return render(request, self.template_name)
 
 
 class LegalNoticeView(View):
-    template_name = 'legal_notice.html'
+    template_name = 'home/legal_notice.html'
 
     def get(self, request):
         return render(request, self.template_name)
