@@ -14,21 +14,36 @@
         </div>
     </div>
 </header>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-4 offset-4 offset-4">
-            <form action="" class="">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="email" name="email" id="input_email" class="form-control mb-2 mr-sm-2 search-query" placeholder="Email" required>
+    <section class="">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-4 offset-4 offset-4">
+                    <form action="" class="">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                {% for key, value in form.errors.items %}
+                                    <p>{{value}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <button class="btn btn-primary mb-2" type="submit">Se connecter</button>
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <p>Votre nom d'utilisateur et le mot de passe ne correspondent pas.</p>
+                            </div>
+                        {% endif %}
+                    </form>
+                    
+                    <p>Vous n'avez pas de compte ? C'est par <a href="{% url 'user:register' %}">ici</a>.</p>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" id="input_password" class="form-control mb-2 mr-sm-2 search-query" placeholder="Mot de passe" required>
-                </div>
-                <button class="btn btn-primary mb-2" type="submit">Se connecter</button>
-            </form>
-            <p>Vous n'avez pas de compte ? C'est par <a href="{% url 'user:register' %}">ici</a>.</p>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+    
 {% endblock %}

@@ -30,12 +30,14 @@
                             {{ field }}
                         </div>
                     {% endif %}
-                    <div class="bg-danger">
-                        {% for error in fields.errors %}
-                            <p>{{ error }}</p>
+                {% endfor %}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {% for key, value in form.errors.items %}
+                            <p>{{value}}</p>
                         {% endfor %}
                     </div>
-                {% endfor %}
+                {% endif %}
                 <button class="btn btn-primary mb-2" type="submit">S'inscrire</button>
             </form>
         </div>

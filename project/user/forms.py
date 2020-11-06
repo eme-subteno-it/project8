@@ -75,3 +75,31 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'subscribed']
+
+
+class LoginForm(AuthenticationForm):
+    email = forms.EmailField(
+        max_length=250,
+        required=True,
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': _('Email'),
+                'class': 'form-control'
+            }
+        ),
+    )
+
+    password = forms.CharField(
+        max_length=128,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': _('Password'),
+                'class': 'form-control'
+            }
+        ),
+    )
+
+    class Meta:
+        model = User
+        fields = ['email', 'password']
