@@ -47,22 +47,6 @@ class LoginAccount(LoginView):
     template_name = 'user/login.html'
     authentication_form = LoginForm
 
-    # def get(self, request):
-    #     form = self.form_class()
-    #     return render(request, self.template_name, {'form': form})
-
-    # def post(self, request):
-    #     form = self.form_class()
-
-    #     if form.is_valid():
-    #         email = form.cleaned_data['email']
-    #         password = form.cleaned_data['password']
-
-    #         user = authenticate(email=email, password=password)
-    #         if user is not None:
-    #             login(request, user)
-    #         else:
-    #             return render(request, self.template_name, {'form': form})
 
 class MyAccount(View):
     template_name = 'user/my_account.html'
@@ -74,6 +58,6 @@ class MyAccount(View):
 class LogoutAccount(LogoutView):
 
     def get(self, request):
-        if request.user:
-            logout(request.user)
-            return redirect('home:home')
+        logout(request)
+
+        return redirect('home:home')

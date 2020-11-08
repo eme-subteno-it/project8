@@ -16,9 +16,9 @@
 </header>
     <section class="">
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-4 offset-4 offset-4">
-                    <form action="" class="">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-12 col-md-4">
+                    <form method="post" action="{% url 'user:login' %}" class="">
                         {% csrf_token %}
                         {% for field in form %}
                             <div class="form-group">
@@ -38,6 +38,7 @@
                                 <p>Votre nom d'utilisateur et le mot de passe ne correspondent pas.</p>
                             </div>
                         {% endif %}
+                        <input type="hidden" name="next" value="{{ redirect_field_name }}" />
                     </form>
                     
                     <p>Vous n'avez pas de compte ? C'est par <a href="{% url 'user:register' %}">ici</a>.</p>

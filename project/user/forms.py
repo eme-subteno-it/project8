@@ -78,12 +78,12 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    email = forms.EmailField(
-        max_length=250,
+    username = forms.CharField(
+        max_length=40,
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={
-                'placeholder': _('Email'),
+                'placeholder': _('Username'),
                 'class': 'form-control'
             }
         ),
@@ -102,4 +102,4 @@ class LoginForm(AuthenticationForm):
 
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ('username', 'password')
