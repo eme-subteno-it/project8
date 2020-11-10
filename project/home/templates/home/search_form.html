@@ -1,4 +1,4 @@
-<form method="get" action="" class="form-search form-inline justify-content-center">
+<form method="get" action="{% url 'product:search' %}" class="form-search form-inline justify-content-center">
     {% csrf_token %}
     <div role="search" class="">
         <input type="text" name="search" class="form-control mb-2 mr-sm-2 search-query" placeholder="Produit" data-limit="5" accept-charset="utf-8"/>
