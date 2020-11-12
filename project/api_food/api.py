@@ -24,8 +24,6 @@ class ApiFood:
         self.url = 'https://fr.openfoodfacts.org/categories.json'
         self.call_api()
 
-        # Management categories for to get a list
-        print('Collecting all categories')
         for i in range(150):
             response_api = {}
             response_api['name'] = self.result_parse['tags'][i]['name']
@@ -52,8 +50,6 @@ class ApiFood:
             self.call_api(params)
             products = self.result_parse['products']
 
-            print('category : %s' % category.name)
-            print('--------')
             for product in products:
                 if product:
                     if 'product_name' in product:
@@ -71,6 +67,5 @@ class ApiFood:
                                 self.products.append(response_api)
                         except KeyError:
                             pass
-                        print("product : %s" % product['product_name'])
 
         return self.products
