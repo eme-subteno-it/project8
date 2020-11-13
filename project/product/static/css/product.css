@@ -1,0 +1,47 @@
+header.masthead-substitute {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+header.masthead-account h1 {
+    font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+    header.masthead-account {
+        height: 69%;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+    header.masthead-account p {
+        font-size: 1.15rem;
+    }
+    header.masthead-account h1 {
+        font-size: 3rem;
+    }
+}
+
+.result-search .card {
+    cursor: pointer;
+}
+
+.result-search .card img {
+    height: 300px !important;
+    width: 268px !important;
+}
+
+.result-search .card span {
+    background-color: var(--main-pb-color);
+    position: absolute;
+    border: solid 1px black;
+    height: 2.8rem;
+    width: 2.8rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    color: white;
+}

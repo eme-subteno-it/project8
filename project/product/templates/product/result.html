@@ -2,5 +2,26 @@
 
 {% load static %}
 {% block title %}Result{% endblock %}
-{% block css %}{% endblock %}
-{% block content %}{% endblock %}
+{% block css %}<link href="{% static 'css/product.css' %}" rel="stylesheet" />{% endblock %}
+
+{% block content %}
+    {% if product %}
+        {% include 'product/substitutes.html' %}
+    {% elif products %}
+        <section class="result-search">
+            <div class="container">
+                <h2 class="text-center mb-5 mt-5">Quel article voulez-vous substituer ?</h2>
+                <div class="row justify-content-around flex-wrap">
+                    {% for product in products %}
+                        <figure>
+                            <img src="{{ product.image }}" alt="{{ product.name }}">
+                            <figcaption class=text-center>{{ product.name }}</figcaption>
+                        </figure>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block js %}<script src="{% static 'js/form.js' %}"></script>{% endblock %}

@@ -1,0 +1,32 @@
+<header class="masthead-substitute" style="background-image: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('{{ product.image }}');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-12 col-lg-10 align-self-center">
+                <h1 class="text-uppercase text-white font-weight-bold">{{ product.name }}</h1>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+<section class="result-search">
+    <div class="container">
+        <h2 class="text-center mb-5 mt-5">Vous pouvez remplacer cet aliment par : </h2>
+        <div class="row">
+            {% for substitute in substitutes %}
+                <div class="col-12 col-md-4 mb-5 text-center">
+                    <div class="card" style="width: 18rem;">
+                        <a href="/product-{{ substitute.id }}">
+                            <img class="img img-fluid card-img-top" src="{{ substitute.image }}" alt="{{ substitute.name }}">
+                                <div class="card-body">
+                                    <span>{{ substitute.nutriscore_grade }}</span>
+                                    <p class="card-text">{{ substitute.name }}</p>
+                                    <button class="btn btn-primary"><i class="far fa-save"></i> Sauvegarder</button>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

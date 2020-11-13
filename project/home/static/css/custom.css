@@ -30,7 +30,7 @@ a:hover {
 }
 
 /* Fonts */
-p, a, span, li {
+p, a, span, li, button {
     font-family: "Scope One", sans-serif;
 }
 

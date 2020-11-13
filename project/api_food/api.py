@@ -1,6 +1,5 @@
 import requests
-from django.db.utils import IntegrityError
-from product.models import Category, Product
+from product.models import Category
 
 
 class ApiFood:
