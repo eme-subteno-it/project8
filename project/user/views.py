@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import JsonResponse
 from .models import User
+from product.models import Product
 from .forms import RegisterForm, LoginForm
 
 
@@ -53,6 +55,30 @@ class MyAccount(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
+
+class MySubstitutes(View):
+    template_name = 'user/my_substitutes.html'
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            products = User.objects.get(id=request.user.id).product_set.all()
+            len_products = len(products)
+            context = {'products': products, 'len': len_products}
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        if request.user.is_authenticated:
+            query = request.POST.get('product_id')
+            product = Product.objects.get(id=query)
+            user = User.objects.get(id=request.user.id)
+            product.delete_substitute(user)
+
+            res = {'good_message': 'delete'}
+        else:
+            res = {'error_message': 'impossible'}
+
+        return JsonResponse(res)
 
 
 class LogoutAccount(LogoutView):

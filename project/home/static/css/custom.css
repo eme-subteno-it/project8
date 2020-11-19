@@ -13,6 +13,9 @@ a {
 a:hover {
     color: var(--caramel-pb-color) !important;
 }
+a.btn-primary:hover {
+    color: #fff !important;
+}
 
 .btn-primary {
     background-color: var(--main-pb-color) !important;
@@ -91,6 +94,10 @@ header.masthead-legal-notice h1 {
 }
 .navbar-collapse i {
     width: 30px;
+}
+
+.navbar-collapse .substitutd_menu {
+    transform: rotate(-28deg);
 }
 
 .navbar-collapse svg:hover {

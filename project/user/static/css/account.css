@@ -24,3 +24,25 @@ header.masthead-account h1 {
         font-size: 3rem;
     }
 }
+
+.my_substitutes .card {
+    cursor: pointer;
+}
+
+.my_substitutes .card img {
+    height: 300px !important;
+    width: 268px !important;
+}
+
+.my_substitutes .card span {
+    background-color: var(--main-pb-color);
+    position: absolute;
+    border: solid 1px black;
+    height: 2.8rem;
+    width: 2.8rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    color: white;
+}

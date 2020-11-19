@@ -1,3 +1,10 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+{% block title %}Result{% endblock %}
+{% block css %}<link href="{% static 'css/product.css' %}" rel="stylesheet" />{% endblock %}
+
+{% block content %}
 <header class="masthead-substitute" style="background-image: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('{{ product.image }}');">
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
@@ -21,8 +28,7 @@
                             <a href="/product-{{ substitute.id }}">
                                 <p class="card-text">{{ substitute.name }}</p>
                             </a>
-                            <form>
-                                {% csrf_token %}
+                            <form method="post" class="form-substitute-save">
                                 <input type="hidden" name="substitute" value="{{ substitute.id }}">
                                 <button type="submit" class="btn btn-primary save_substitute"><i class="far fa-save"></i> Sauvegarder</button>
                             </form>
@@ -33,3 +39,6 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block js %}<script src="{% static 'js/save_substitute.js' %}"></script>{% endblock %}

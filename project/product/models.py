@@ -1,6 +1,7 @@
 import string
 import random
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -12,6 +13,7 @@ class Product(models.Model):
     image = models.URLField()
     url_api = models.URLField()
     category_ids = models.ManyToManyField('Category')
+    user_ids = models.ManyToManyField('user.User')
 
     fat_level = models.CharField(max_length=15, default=None)
     satured_fat_level = models.CharField(max_length=15, default=None)
@@ -80,8 +82,19 @@ class Product(models.Model):
 
         return substitutes
 
-    def save_product(self):
-        pass
+    def save_substitute(self, user):
+        try:
+            self.user_ids.add(user.id)
+            return True
+        except user.DoesNotExist:
+            return False
+
+    def delete_substitute(self, user):
+        try:
+            self.user_ids.remove(user.id)
+            return True
+        except user.DoesNotExist:
+            return False
 
 
 class Category(models.Model):
