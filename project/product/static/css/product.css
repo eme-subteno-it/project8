@@ -45,3 +45,16 @@ header.masthead-account h1 {
     right: -20px;
     color: white;
 }
+
+.nutrient_levels h3 {
+    text-transform: uppercase;
+    color: #7d7d7d;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6em;
+    letter-spacing: 1.1px;
+    margin-top: 8px;
+}
+
+.nutrient_levels img {
+    margin-right: 5px;
+}

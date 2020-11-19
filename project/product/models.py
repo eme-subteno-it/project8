@@ -13,12 +13,22 @@ class Product(models.Model):
     url_api = models.URLField()
     category_ids = models.ManyToManyField('Category')
 
+    fat_level = models.CharField(max_length=15, default=None)
+    satured_fat_level = models.CharField(max_length=15, default=None)
+    sugars_level = models.CharField(max_length=15, default=None)
+    salt_level = models.CharField(max_length=15, default=None)
+
+    fat_g = models.FloatField(default=0.0)
+    satured_fat_g = models.FloatField(default=0.0)
+    sugars_g = models.FloatField(default=0.0)
+    salt_g = models.FloatField(default=0.0)
+
     def save(self, *args, **kwargs):
         self.nutriscore_grade = self.nutriscore_grade.upper()
         return super(Product, self).save(*args, **kwargs)
 
     @classmethod
-    def create_product(cls, name, description, store, nutriscore, nutriscore_grade, image, url_api, category_ids):
+    def create_product(cls, name, description, store, nutriscore, nutriscore_grade, image, url_api, category_ids, fat_level, satured_fat_level, sugars_level, salt_level, fat_g, satured_fat_g, sugars_g, salt_g):
         categ_ids = []
         for category in category_ids:
             try:
@@ -35,6 +45,14 @@ class Product(models.Model):
             nutriscore_grade=nutriscore_grade,
             image=image,
             url_api=url_api,
+            fat_level=fat_level,
+            satured_fat_level=satured_fat_level,
+            sugars_level=sugars_level,
+            salt_level=salt_level,
+            fat_g=fat_g,
+            satured_fat_g=satured_fat_g,
+            sugars_g=sugars_g,
+            salt_g=salt_g,
         )
         for categ in categ_ids:
             product.category_ids.add(categ)
@@ -61,6 +79,9 @@ class Product(models.Model):
             substitutes = random.choices(all_substitutes, k=30)
 
         return substitutes
+
+    def save_product(self):
+        pass
 
 
 class Category(models.Model):

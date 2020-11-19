@@ -15,10 +15,10 @@
         </div>
     </div>
 </header>
-<section class="result-search">
+<section class="result-search mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6 nutriscore_grade">
                 {% if product.nutriscore_grade == 'A' %}
                     <img src="{% static 'img/nutriscore/nutriscore-a.svg' %}" alt="">
                 {% elif product.nutriscore_grade == 'B' %}
@@ -31,13 +31,29 @@
                     <img src="{% static 'img/nutriscore/nutriscore-e.svg' %}" alt="">
                 {% endif %}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6 nutrient_levels">
                 <h3>Repères nutritionnels pour 100g</h3>
+                <div class="d-flex align-items-center fat mb-2">
+                    <img src="{% static 'img/nutrient_levels/' %}{{ product.fat_level }}.png" alt="">
+                    <span> {{ product.fat_g }} g Matières grasses / Lipides en quantité {{ product.fat_level }}</span>
+                </div>
+                <div class="d-flex align-items-center satured_fat mb-2">
+                    <img src="{% static 'img/nutrient_levels/' %}{{product.satured_fat_level}}.png" alt="">
+                    <span> {{ product.satured_fat_g }} g Acides gras saturés en quantité {{ product.satured_fat_level }}</span>
+                </div>
+                <div class="d-flex align-items-center sugars mb-2">
+                    <img src="{% static 'img/nutrient_levels/' %}{{ product.sugars_level }}.png" alt="">
+                    <span> {{ product.sugars_g }} g Sucres en quantité {{ product.sugars_level }}</span>
+                </div>
+                <div class="d-flex align-items-center salt mb-2">
+                    <img src="{% static 'img/nutrient_levels/' %}{{ product.salt_level }}.png" alt="">
+                    <span> {{ product.salt_g }} g Sel en quantité {{ product.salt_level }}</span>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4 offset-4">
-                <a class="d-block btn btn-primary text-white" href="{{ product.url_api }}">Voir la fiche d'OpenFoodFacts</a>
+        <div class="row mt-5 mb-5">
+            <div class="col-12 col-md-4 offset-md-4">
+                <a class="d-block btn btn-primary text-white" target='_blank' href="{{ product.url_api }}">Voir la fiche d'OpenFoodFacts</a>
             </div>
         </div>
     </div>

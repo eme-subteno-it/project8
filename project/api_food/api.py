@@ -62,6 +62,16 @@ class ApiFood:
                             response_api['image'] = product['image_url']
                             response_api['url_api'] = product['url']
                             response_api['category_ids'] = product['categories_tags']
+
+                            response_api['fat_level'] = product['nutrient_levels']['fat']
+                            response_api['satured_fat_level'] = product['nutrient_levels']['saturated-fat']
+                            response_api['sugars_level'] = product['nutrient_levels']['sugars']
+                            response_api['salt_level'] = product['nutrient_levels']['salt']
+                            response_api['fat_g'] = product['nutriments']['fat_100g']
+                            response_api['satured_fat_g'] = product['nutriments']['saturated-fat_100g']
+                            response_api['sugars_g'] = product['nutriments']['sugars_100g']
+                            response_api['salt_g'] = product['nutriments']['salt_100g']
+
                             if product['product_name'] != '':
                                 self.products.append(response_api)
                         except KeyError:

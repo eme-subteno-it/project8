@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import Product, Category
+from django.http import JsonResponse
 
 
 class SearchProduct(View):
@@ -24,7 +25,22 @@ class SearchProduct(View):
                 substitutes = product.calculate_substitutes()
                 context = {'product': product, 'substitutes': substitutes}
 
-                return render(request, self.template_name, context)
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        if request.session:
+            print(request.session)
+            message = 'hello'
+        else:
+            message = 'no connected'
+
+        return JsonResponse(message)
+
+
+class SaveSubstitute(View):
+
+    def get(self, request):
+        pass
 
 
 class ProductView(View):

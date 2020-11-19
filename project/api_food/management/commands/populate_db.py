@@ -57,5 +57,13 @@ class Command(BaseCommand):
                         nutriscore_grade=prod['nutriscore_grade'],
                         image=prod['image'],
                         url_api=prod['url_api'],
-                        category_ids=prod['category_ids']
+                        category_ids=prod['category_ids'],
+                        fat_level=prod['fat_level'],
+                        satured_fat_level=prod['satured_fat_level'],
+                        sugars_level=prod['sugars_level'],
+                        salt_level=prod['salt_level'],
+                        fat_g=prod['fat_g'],
+                        satured_fat_g=prod['satured_fat_g'],
+                        sugars_g=prod['sugars_g'],
+                        salt_g=prod['salt_g']
                     )
