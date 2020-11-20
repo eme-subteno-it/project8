@@ -16,16 +16,22 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# This is defined here as a do-nothing function because we can't import
+# django.utils.translation -- that module depends on the settings.
+def gettext_noop(s):
+    return s
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
+SECRET_KEY = 'boubou'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -48,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,6 +131,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
+LOCALE_PATHS = ( os.path.join(SITE_ROOT, 'locale'), )
+
+LANGUAGES = (
+    ('en', gettext_noop('English')),
+    ('fr', gettext_noop('French')),
+)
 
 
 # Static files (CSS, JavaScript, Images)

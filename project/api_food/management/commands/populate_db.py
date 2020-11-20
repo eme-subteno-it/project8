@@ -1,10 +1,11 @@
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.translation import gettext_lazy as _
 from api_food.api import ApiFood
 from product.models import Category, Product
 
 
 class Command(BaseCommand):
-    help = 'Populating the database via the Openfoodfact API'
+    help = _('Populating the database via the Openfoodfact API')
     api_food = ApiFood()
 
     def add_arguments(self, parser):
@@ -12,7 +13,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--delete',
             action='store_true',
-            help='Delete products and categories instead of closing it',
+            help=_('Delete products and categories instead of closing it'),
         )
 
     def handle(self, *args, **options):
@@ -24,12 +25,12 @@ class Command(BaseCommand):
                 Product.objects.all().delete()
             if categories:
                 Category.objects.all().delete()
-                self.stdout.write('The products and their categories have been deleted')
+                self.stdout.write(_('The products and their categories have been deleted'))
             else:
-                self.stdout.write('The database is already empty.')
+                self.stdout.write(_('The database is already empty.'))
         else:
             # Management categories
-            self.stdout.write('Add the categories from api OpenfoodFact')
+            self.stdout.write(_('Add the categories from api OpenfoodFact'))
             new_categories = self.api_food.get_categories()
 
             for categ in new_categories:
@@ -42,7 +43,7 @@ class Command(BaseCommand):
                     )
 
             # Management products
-            self.stdout.write('Add the products now')
+            self.stdout.write(_('Add the products now'))
             new_products = self.api_food.get_products()
 
             for prod in new_products:

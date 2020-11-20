@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% translate '500 Error' %}{% endblock %}
+
+{% block css %}<link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css"/>{% endblock %}
+
+{% block content %}
+<header class="masthead" style="background-image: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-12 col-lg-10 align-self-center">
+                <h1 class="text-uppercase text-white font-weight-bold">{% translate '500 Error' %}</h1>
+                <hr class="divider my-4" />
+                <p>{% translate 'Oops, an error has occured!' %}</p>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

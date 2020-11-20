@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
-
+{% load i18n %}
 {% load static %}
-{% block title %}Result{% endblock %}
+{% block title %}{% translate 'Substitutes' %}{% endblock %}
 {% block css %}<link href="{% static 'css/product.css' %}" rel="stylesheet" />{% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 </header>
 <section class="result-search mt-5">
     <div class="container">
-        <h2 class="text-center mb-5 mt-5">Vous pouvez remplacer cet aliment par : </h2>
+        <h2 class="text-center mb-5 mt-5">{% translate 'You can replace this food with:' %}</h2>
         <div class="row">
             {% for substitute in substitutes %}
                 <div class="col-12 col-md-4 mb-5 text-center">
@@ -30,7 +30,7 @@
                             </a>
                             <form method="post" class="form-substitute-save">
                                 <input type="hidden" name="substitute" value="{{ substitute.id }}">
-                                <button type="submit" class="btn btn-primary save_substitute"><i class="far fa-save"></i> Sauvegarder</button>
+                                <button type="submit" class="btn btn-primary save_substitute"><i class="far fa-save"></i>{% translate ' Save' %}</button>
                             </form>
                         </div>
                     </div>

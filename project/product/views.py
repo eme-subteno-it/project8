@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import gettext_lazy as _
 from django.views import View
 from .models import Product, Category
 from user.models import User
@@ -11,12 +12,12 @@ class SearchProduct(View):
     def get(self, request):
         query = request.GET.get('search')
         if not query:
-            message = 'This product does not exist.'
+            message = _('This product does not exist.')
             context = {'error': message}
         else:
             products = Product.objects.filter(name__icontains=query)
             if not products.exists():
-                message = 'This product does not exist sorry.'
+                message = _('This product does not exist sorry.')
                 context = {'error': message}
             else:
                 context = {'products': products}
@@ -40,9 +41,9 @@ class Substitutes(View):
             user = User.objects.get(id=request.user.id)
             product.save_substitute(user)
 
-            res = {'good_message': 'hello'}
+            res = {'good_message': _('hello')}
         else:
-            res = {'error_message': 'no connected'}
+            res = {'error_message': _('no connected')}
 
         return JsonResponse(res)
 

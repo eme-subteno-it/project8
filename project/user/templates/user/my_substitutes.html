@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %}
-
+{% load i18n %}
 {% load static %}
 {% block title %}Mon compte{% endblock %}
 {% block css %}<link href="{% static 'css/account.css' %}" rel="stylesheet" />{% endblock %}
@@ -20,7 +20,7 @@
 <section class="my_substitutes mt-5">
     <div class="container">
         {% if products %}
-            <h2 class="text-center mb-5 mt-5">Vous avez <span class="count_product">{{ len }}</span> substitut{% if len > 1 %}s {% endif %} enregistré{% if len > 1 %}s {% endif %}</h2>
+            <h2 class="text-center mb-5 mt-5">{% translate 'You have ' %}<span class="count_product">{{ len }}</span> {% translate 'substitute' %}{% if len > 1 %}s {% endif %} {% translate 'saved' %}{% if len > 1 %}s {% endif %}</h2>
             <div class="row">
                 {% for product in products %}
                     <div class="col-12 col-md-4 mb-5 text-center" id="{{ product.id }}">
@@ -32,7 +32,7 @@
                                 </a>
                                 <form method="post" class="form-substitute-delete">
                                     <input type="hidden" name="product" value="{{ product.id }}">
-                                    <button type="submit" class="btn btn-primary delete_substitute"><i class="fas fa-trash"></i> Supprimer</button>
+                                    <button type="submit" class="btn btn-primary delete_substitute"><i class="fas fa-trash"></i> Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -40,11 +40,11 @@
                 {% endfor %}
             </div>
         {% else %}
-            <h2 class="text-center mb-5 mt-5">Vos substituts enregistrés</h2>
+            <h2 class="text-center mb-5 mt-5">{% translate 'Your substitutes saved' %}</h2>
             <div class="row">
                 <div class="col-12">
-                    <p class="text-center">Aucun substituts enregistrés.</p>
-                    <p class="text-center">Rechercher des produits : </p>
+                    <p class="text-center">{% translate 'No registered substitutes.' %}</p>
+                    <p class="text-center">{% translate 'Search for products: ' %}</p>
                     {% include 'home/search_form.html' %}
                 </div>
             </div>
