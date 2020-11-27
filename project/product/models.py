@@ -75,10 +75,13 @@ class Product(models.Model):
                 if product.nutriscore < nutriscore:
                     nutriscore_grade_substitute = string.ascii_uppercase.index(product.nutriscore_grade)
                     if nutriscore_grade_substitute < nutriscore_grade:
-                        all_substitutes.append(product)
+                        if product not in all_substitutes:
+                            all_substitutes.append(product)
 
-        if len(all_substitutes) > 10:
-            substitutes = random.choices(all_substitutes, k=30)
+        if len(all_substitutes) > 30:
+            substitutes = random.sample(all_substitutes, 30)
+        else:
+            substitutes = random.sample(all_substitutes, len(all_substitutes))
 
         return substitutes
 

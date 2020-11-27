@@ -1,0 +1,23 @@
+{% load i18n %}
+<form method="post" action="{% url 'user:login' %}" class="form_login">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            {{ field }}
+        </div>
+    {% endfor %}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {% for key, value in form.errors.items %}
+                <p>{{value}}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <button class="btn btn-primary mb-2" id="id_login" type="submit">{% translate 'Sign in' %}</button>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>{% translate 'Your username and password do not match.' %}</p>
+        </div>
+    {% endif %}
+    <input type="hidden" name="next" value="{{ redirect_field_name }}" />
+</form>

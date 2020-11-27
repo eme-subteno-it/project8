@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views import View
 from .models import Product, Category
 from user.models import User
+from user.forms import LoginForm
 from django.http import JsonResponse
 
 
@@ -27,11 +28,20 @@ class SearchProduct(View):
 
 class Substitutes(View):
     template_name = 'product/substitutes.html'
+    form_class = LoginForm
 
     def get(self, request, product_id):
+        form = self.form_class
         product = get_object_or_404(Product, pk=product_id)
         substitutes = product.calculate_substitutes()
-        context = {'product': product, 'substitutes': substitutes}
+
+        query = request.GET.get('substitute_id')
+        if query:
+            if request.user.is_authenticated:
+                substitute_for_save = Product.objects.get(id=query)
+                user = User.objects.get(id=request.user.id)
+                substitute_for_save.save_substitute(user)
+        context = {'product': product, 'substitutes': substitutes, 'form': form}
         return render(request, self.template_name, context)
 
     def post(self, request):

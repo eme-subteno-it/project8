@@ -25,6 +25,9 @@ def gettext_noop(s):
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['SECRET_KEY']
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -148,7 +151,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'home', 'static'),
     os.path.join(BASE_DIR, 'user', 'static'),
+    os.path.join(BASE_DIR, 'product', 'static'),
 )
 
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
+
+# Functionals tests
+SELENIUM_DRIVER = 'Chrome'
+# Change by your path if you can test like this : '/Your/path/driver'
+SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']

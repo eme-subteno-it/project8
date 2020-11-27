@@ -23,6 +23,7 @@
 
         // Save a substitute
         let form = $('.form-substitute-save');
+
         function submitForm(e) {
             e.preventDefault();
 
@@ -36,12 +37,15 @@
                 method: 'POST',
                 url: '/save_substitute/',
                 data: data,
-            }).done(function (data) {
-                console.log(data);
-                if (data['error_message']) {
-                    alert('Veuillez vous connecter afin de pouvoir sauvegarder ce produit.');
-                    window.location.replace('/login/');
-                } else if (data['good_message']) {
+            }).done(function (response) {
+                if (response['error_message']) {
+                    console.log('response')
+                    let modal = $("#modal_login");
+                    let inputRedirect = modal.find("input[name='next']");
+                    inputRedirect.val(window.location.pathname + '?substitute_id=' + dataInput.value);
+                    console.log(inputRedirect);
+                    modal.modal("show");
+                } else if (response['good_message']) {
                     alert('Le produit a bien été sauvegardé');
                 }
             });
