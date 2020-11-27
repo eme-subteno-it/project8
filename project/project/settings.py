@@ -157,7 +157,14 @@ STATICFILES_DIRS = (
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
 
-# Functionals tests
+"""
+    FUNCTIONALS TESTS_
+
+    To get the chromedriver : https://chromedriver.chromium.org/
+
+    Change SELENIUM_DRIVER_PATH variable by your path if you can test
+    - MACOS/LINUX = '/Your/path/driver/chromedriver'
+    - WINDOWS = '/Your/path/driver/chromedriver.exe'
+"""
 SELENIUM_DRIVER = 'Chrome'
-# Change by your path if you can test like this : '/Your/path/driver'
 SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
