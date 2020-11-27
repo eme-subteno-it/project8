@@ -34,6 +34,7 @@ class Substitutes(View):
         form = self.form_class
         product = get_object_or_404(Product, pk=product_id)
         substitutes = product.calculate_substitutes()
+        context = {}
 
         query = request.GET.get('substitute_id')
         if query:
@@ -41,7 +42,11 @@ class Substitutes(View):
                 substitute_for_save = Product.objects.get(id=query)
                 user = User.objects.get(id=request.user.id)
                 substitute_for_save.save_substitute(user)
-        context = {'product': product, 'substitutes': substitutes, 'form': form}
+                context['message'] = _('Your product has been saved.')
+        context['product'] = product
+        context['substitutes'] = substitutes
+        context['form'] = form
+        # context = {'product': product, 'substitutes': substitutes, 'form': form}
         return render(request, self.template_name, context)
 
     def post(self, request):

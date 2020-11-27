@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 17:36+0100\n"
+"POT-Creation-Date: 2020-11-27 10:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,15 +222,11 @@ msgstr "Voir la fiche d'OpenFoodFacts"
 msgid "Result"
 msgstr "Résultat"
 
-#: product/templates/product/result.html:15
-msgid "Result of the research"
-msgstr "Résultat de la recherche"
-
-#: product/templates/product/result.html:25
+#: product/templates/product/result.html:27
 msgid "No product found, search for another product"
 msgstr "Aucun produit trouvé, recherchez un autre produit"
 
-#: product/templates/product/result.html:27
+#: product/templates/product/result.html:29
 msgid "Which item do you want to substitute?"
 msgstr "Quel article voulez-vous substituer ?"
 
@@ -238,27 +234,35 @@ msgstr "Quel article voulez-vous substituer ?"
 msgid "Substitutes"
 msgstr "Substituts"
 
-#: product/templates/product/substitutes.html:20
+#: product/templates/product/substitutes.html:24
+msgid "You must log in"
+msgstr "Vous devez vous connecter"
+
+#: product/templates/product/substitutes.html:48 product/views.py:45
+msgid "Your product has been saved."
+msgstr "Votre produit a bien été sauvegardé."
+
+#: product/templates/product/substitutes.html:56
 msgid "You can replace this food with:"
 msgstr "Vous pouvez remplacer cet aliment par : "
 
-#: product/templates/product/substitutes.html:33
+#: product/templates/product/substitutes.html:69
 msgid " Save"
 msgstr " Sauvegarder"
 
-#: product/views.py:15
+#: product/views.py:16
 msgid "This product does not exist."
 msgstr "Ce produit n'existe pas."
 
-#: product/views.py:20
+#: product/views.py:21
 msgid "This product does not exist sorry."
 msgstr "Ce produit n'existe pas désolé."
 
-#: product/views.py:44
+#: product/views.py:59
 msgid "hello"
 msgstr "bonjour"
 
-#: product/views.py:46
+#: product/views.py:61
 msgid "no connected"
 msgstr "non connecté"
 
@@ -299,21 +303,21 @@ msgid "be informed of a V2 of the site ?"
 msgstr "être informé d'une V2 du site ?"
 
 #: user/templates/user/login.html:4 user/templates/user/login.html:11
-#: user/templates/user/login.html:35
+#: user/templates/user/login_form.html:16
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: user/templates/user/login.html:38
-msgid "Your username and password do not match."
-msgstr "Votre nom d'utilisateur et le mot de passe ne correspondent pas."
-
-#: user/templates/user/login.html:44
+#: user/templates/user/login.html:22
 msgid "You do not have an account ? It is by"
 msgstr "Vous n'avez pas de compte ? C'est par"
 
-#: user/templates/user/login.html:44
+#: user/templates/user/login.html:22
 msgid "here"
 msgstr "ici"
+
+#: user/templates/user/login_form.html:19
+msgid "Your username and password do not match."
+msgstr "Votre nom d'utilisateur et le mot de passe ne correspondent pas."
 
 #: user/templates/user/my_account.html:4
 msgid "My account"

@@ -2,7 +2,6 @@
     "use strict";
 
     $(document).ready(function () {
-        
         // Get cookies
         function getCookie(name) {
             var cookieValue = null;
@@ -39,14 +38,16 @@
                 data: data,
             }).done(function (response) {
                 if (response['error_message']) {
-                    console.log('response')
                     let modal = $("#modal_login");
                     let inputRedirect = modal.find("input[name='next']");
                     inputRedirect.val(window.location.pathname + '?substitute_id=' + dataInput.value);
-                    console.log(inputRedirect);
                     modal.modal("show");
                 } else if (response['good_message']) {
-                    alert('Le produit a bien été sauvegardé');
+                    let messageSubstituteSaved = $('#message_substitute_saved');
+                    messageSubstituteSaved.modal('show');
+                    setTimeout(function () {
+                        messageSubstituteSaved.modal('hide');
+                    }, 2000);
                 }
             });
         }
