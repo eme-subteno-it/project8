@@ -6,7 +6,6 @@ from selenium.webdriver.common.keys import Keys
 from user.models import User
 from django.conf import settings
 import time
-import os
 
 
 class RegisterTests(StaticLiveServerTestCase):

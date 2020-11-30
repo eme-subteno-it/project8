@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
 from api_food.api import ApiFood
 from product.models import Category, Product
