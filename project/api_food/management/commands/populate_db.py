@@ -44,7 +44,7 @@ class Command(BaseCommand):
 
             # Management products
             self.stdout.write(_('Add the products now'))
-            new_products = self.api_food.get_products()
+            new_products = self.api_food.get_products(Category.objects.all())
 
             for prod in new_products:
                 product = Product.objects.filter(name=prod['name'])

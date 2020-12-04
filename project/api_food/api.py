@@ -1,5 +1,4 @@
 import requests
-from product.models import Category
 
 
 class ApiFood:
@@ -8,34 +7,34 @@ class ApiFood:
     """
 
     def __init__(self):
-        self.url = ''
         self.categories = []
         self.products = []
-        self.result_parse = False
 
-    def call_api(self, params=None):
+    def call_api(self, url, params=None):
         """ Method to call api by a request GET and return a json result """
-        res = requests.get(self.url, params)
-        self.result_parse = res.json()
+        res = requests.get(url, params)
+        result_parse = res.json()
+
+        return result_parse
 
     def get_categories(self):
         """ Method for get 1000 categories """
-        self.url = 'https://fr.openfoodfacts.org/categories.json'
-        self.call_api()
+        url = 'https://fr.openfoodfacts.org/categories.json'
+        result_parse = self.call_api(url)
 
         for i in range(150):
             response_api = {}
-            response_api['name'] = self.result_parse['tags'][i]['name']
-            response_api['url'] = self.result_parse['tags'][i]['url'] + '.json'
-            response_api['id'] = self.result_parse['tags'][i]['id']
+            response_api['name'] = result_parse['tags'][i]['name']
+            response_api['url'] = result_parse['tags'][i]['url'] + '.json'
+            response_api['id'] = result_parse['tags'][i]['id']
             self.categories.append(response_api)
 
         return self.categories
 
-    def get_products(self):
+    def get_products(self, categories):
         """ Method for get 20 products per pages in 1000 categories """
-        categories = Category.objects.all()
-        self.url = 'https://fr.openfoodfacts.org/cgi/search.pl'
+
+        url = 'https://fr.openfoodfacts.org/cgi/search.pl'
 
         for category in categories:
             params = {
@@ -46,8 +45,8 @@ class ApiFood:
                 'page_size': 20,
                 'json': 1,
             }
-            self.call_api(params)
-            products = self.result_parse['products']
+            result_parse = self.call_api(url, params)
+            products = result_parse['products']
 
             for product in products:
                 if product:

@@ -37,9 +37,9 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'api_food.apps.ApiFoodConfig',
     'home.apps.HomeConfig',
     'user.apps.UserConfig',
-    'api_food.apps.ApiFoodConfig',
     'product.apps.ProductConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,7 +133,7 @@ USE_L10N = True
 USE_TZ = True
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
-LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'))
+LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'),)
 
 LANGUAGES = (
     ('en', gettext_noop('English')),

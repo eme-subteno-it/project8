@@ -46,7 +46,7 @@ class Substitutes(View):
         context['product'] = product
         context['substitutes'] = substitutes
         context['form'] = form
-        # context = {'product': product, 'substitutes': substitutes, 'form': form}
+
         return render(request, self.template_name, context)
 
     def post(self, request):
@@ -56,9 +56,9 @@ class Substitutes(View):
             user = User.objects.get(id=request.user.id)
             product.save_substitute(user)
 
-            res = {'good_message': _('hello')}
+            res = {'status': 'success'}
         else:
-            res = {'error_message': _('no connected')}
+            res = {'status': 'error'}
 
         return JsonResponse(res)
 

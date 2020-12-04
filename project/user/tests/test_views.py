@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.db.models.query import QuerySet
-from .models import User
+from user.models import User
 from product.models import Product
 
 

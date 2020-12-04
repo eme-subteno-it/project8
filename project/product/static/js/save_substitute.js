@@ -37,12 +37,12 @@
                 url: '/save_substitute/',
                 data: data,
             }).done(function (response) {
-                if (response['error_message']) {
+                if (response['status'] === 'error') {
                     let modal = $("#modal_login");
                     let inputRedirect = modal.find("input[name='next']");
                     inputRedirect.val(window.location.pathname + '?substitute_id=' + dataInput.value);
                     modal.modal("show");
-                } else if (response['good_message']) {
+                } else if (response['status'] === 'success') {
                     let messageSubstituteSaved = $('#message_substitute_saved');
                     messageSubstituteSaved.modal('show');
                     setTimeout(function () {
