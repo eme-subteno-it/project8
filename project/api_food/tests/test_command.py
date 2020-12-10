@@ -51,7 +51,3 @@ class CommandTest(TestCase):
 
         out = self.call_command('--delete')
         self.assertEqual(out, 'The database is already empty.\n')
-
-    def test_populate_db(self):
-        out = self.call_command()
-        self.assertEqual(out, 'Add the categories from api OpenfoodFact\n')

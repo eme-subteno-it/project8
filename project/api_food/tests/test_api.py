@@ -1,4 +1,3 @@
-from unittest import mock
 from django.test import TestCase
 from api_food.api import ApiFood
 from product.models import Category

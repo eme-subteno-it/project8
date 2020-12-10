@@ -1,3 +1,4 @@
+""" Managements the API OpenFoodFacts """
 import requests
 
 
@@ -6,11 +7,13 @@ class ApiFood:
         Method for get the datas in the API OpenFoodFacts
     """
 
+    # pylint disable=no-self-use
     def __init__(self):
         self.categories = []
         self.products = []
 
-    def call_api(self, url, params=None):
+    @classmethod
+    def call_api(cls, url, params=None):
         """ Method to call api by a request GET and return a json result """
         res = requests.get(url, params)
         result_parse = res.json()
@@ -32,7 +35,7 @@ class ApiFood:
         return self.categories
 
     def get_products(self, categories):
-        """ Method for get 20 products per pages in 1000 categories """
+        """ Method for get 20 products per pages in 150 categories """
 
         url = 'https://fr.openfoodfacts.org/cgi/search.pl'
 
@@ -49,31 +52,30 @@ class ApiFood:
             products = result_parse['products']
 
             for product in products:
-                if product:
-                    if 'product_name' in product:
-                        try:
-                            response_api = {}
-                            response_api['name'] = product['product_name']
-                            response_api['desc'] = product['ingredients_text']
-                            response_api['store'] = product['stores']
-                            response_api['nutriscore'] = product['nutriscore_score']
-                            response_api['nutriscore_grade'] = product['nutriscore_grade']
-                            response_api['image'] = product['image_url']
-                            response_api['url_api'] = product['url']
-                            response_api['category_ids'] = product['categories_tags']
+                if 'product_name' in product:
+                    try:
+                        response_api = {}
+                        response_api['name'] = product['product_name']
+                        response_api['desc'] = product['ingredients_text']
+                        response_api['store'] = product['stores']
+                        response_api['nutriscore'] = product['nutriscore_score']
+                        response_api['nutriscore_grade'] = product['nutriscore_grade']
+                        response_api['image'] = product['image_url']
+                        response_api['url_api'] = product['url']
+                        response_api['category_ids'] = product['categories_tags']
 
-                            response_api['fat_level'] = product['nutrient_levels']['fat']
-                            response_api['satured_fat_level'] = product['nutrient_levels']['saturated-fat']
-                            response_api['sugars_level'] = product['nutrient_levels']['sugars']
-                            response_api['salt_level'] = product['nutrient_levels']['salt']
-                            response_api['fat_g'] = product['nutriments']['fat_100g']
-                            response_api['satured_fat_g'] = product['nutriments']['saturated-fat_100g']
-                            response_api['sugars_g'] = product['nutriments']['sugars_100g']
-                            response_api['salt_g'] = product['nutriments']['salt_100g']
+                        response_api['fat_level'] = product['nutrient_levels']['fat']
+                        response_api['satured_fat_level'] = product['nutrient_levels']['saturated-fat']
+                        response_api['sugars_level'] = product['nutrient_levels']['sugars']
+                        response_api['salt_level'] = product['nutrient_levels']['salt']
+                        response_api['fat_g'] = product['nutriments']['fat_100g']
+                        response_api['satured_fat_g'] = product['nutriments']['saturated-fat_100g']
+                        response_api['sugars_g'] = product['nutriments']['sugars_100g']
+                        response_api['salt_g'] = product['nutriments']['salt_100g']
 
-                            if product['product_name'] != '':
-                                self.products.append(response_api)
-                        except KeyError:
-                            pass
+                        if product['product_name'] != '':
+                            self.products.append(response_api)
+                    except KeyError:
+                        pass
 
         return self.products
