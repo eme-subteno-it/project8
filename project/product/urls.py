@@ -1,5 +1,5 @@
-from django.urls import path, include
-from django.contrib.auth.decorators import login_required
+""" All urls for the product application """
+from django.urls import path
 from  . import views
 
 app_name = 'product'

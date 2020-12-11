@@ -1,3 +1,4 @@
+""" Units tests for the home app """
 from django.test import TestCase
 
 

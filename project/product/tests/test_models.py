@@ -1,10 +1,18 @@
+""" All tests for the product models application """
 from django.test import TestCase
 from product.models import Product, Category
 from user.models import User
 
 
 class ProductModelTest(TestCase):
-
+    """
+        Testing the Product model.
+        This class create a product in database test,
+        a user, a category and 2 substitutes to test
+        if a user can saved or delete a substitute,
+        calculate a substitute and if the attributes
+        are well defined.
+    """
     def setUp(self):
         self.user = User.objects.create_user(
             username='test_username',
@@ -22,7 +30,7 @@ class ProductModelTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='3',
-            nutriscore_grade='C',
+            nutriscore_grade='c',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
@@ -40,7 +48,7 @@ class ProductModelTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='1',
-            nutriscore_grade='A',
+            nutriscore_grade='a',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
@@ -57,7 +65,7 @@ class ProductModelTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='2',
-            nutriscore_grade='B',
+            nutriscore_grade='b',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
@@ -75,37 +83,37 @@ class ProductModelTest(TestCase):
     def test_name_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('name').max_length
-        self.assertEquals(max_length, 200)
+        self.assertEqual(max_length, 200)
 
     def test_store_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('store').max_length
-        self.assertEquals(max_length, 200)
+        self.assertEqual(max_length, 200)
 
     def test_nutriscore_grade_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('nutriscore_grade').max_length
-        self.assertEquals(max_length, 2)
+        self.assertEqual(max_length, 2)
 
     def test_fat_level_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('fat_level').max_length
-        self.assertEquals(max_length, 15)
+        self.assertEqual(max_length, 15)
 
     def test_satured_fat_level_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('satured_fat_level').max_length
-        self.assertEquals(max_length, 15)
+        self.assertEqual(max_length, 15)
 
     def test_sugars_level_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('sugars_level').max_length
-        self.assertEquals(max_length, 15)
+        self.assertEqual(max_length, 15)
 
     def test_salt_level_max_length(self):
         product = Product.objects.get(id=self.product.id)
         max_length = product._meta.get_field('salt_level').max_length
-        self.assertEquals(max_length, 15)
+        self.assertEqual(max_length, 15)
 
     def test_calculate_substitutes(self):
         product = Product.objects.get(id=self.product.id)
@@ -121,7 +129,11 @@ class ProductModelTest(TestCase):
 
 
 class CategoryModelTest(TestCase):
-
+    """
+        Testing the Category model.
+        This class create a category in database test,
+        to test if the attributes are well defined.
+    """
     def setUp(self):
 
         self.category = Category.objects.create(
@@ -132,9 +144,9 @@ class CategoryModelTest(TestCase):
     def test_name_max_length(self):
         category = Category.objects.get(id=self.category.id)
         max_length = category._meta.get_field('name').max_length
-        self.assertEquals(max_length, 200)
+        self.assertEqual(max_length, 200)
 
     def test_api_id_max_length(self):
         category = Category.objects.get(id=self.category.id)
         max_length = category._meta.get_field('api_id').max_length
-        self.assertEquals(max_length, 200)
+        self.assertEqual(max_length, 200)

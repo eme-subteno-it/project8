@@ -21,7 +21,7 @@ class ApiFood:
         return result_parse
 
     def get_categories(self):
-        """ Method for get 1000 categories """
+        """ Method for get 150 categories """
         url = 'https://fr.openfoodfacts.org/categories.json'
         result_parse = self.call_api(url)
 

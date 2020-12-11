@@ -60,7 +60,7 @@
                     <div class="card" style="width: 18rem;">
                         <img class="img img-fluid card-img-top" src="{{ substitute.image }}" alt="{{ substitute.name }}">
                         <div class="card-body">
-                            <span>{{ substitute.nutriscore_grade }}</span>
+                            <span>{{ substitute.nutriscore_grade|upper }}</span>
                             <a href="/product-{{ substitute.id }}">
                                 <p class="card-text">{{ substitute.name }}</p>
                             </a>

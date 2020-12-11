@@ -1,3 +1,4 @@
+""" Inherit class to customize an command """
 from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
 from api_food.api import ApiFood
@@ -5,11 +6,13 @@ from product.models import Category, Product
 
 
 class Command(BaseCommand):
+    """ Customize command to populate the database products and categories """
+
     help = _('Populating the database via the Openfoodfact API')
     api_food = ApiFood()
 
     def add_arguments(self, parser):
-
+        """ Add argument to the command to delete products and categories """
         parser.add_argument(
             '--delete',
             action='store_true',
@@ -17,6 +20,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        """
+            Manage the command for :
+            - delete the products and categories in database
+            - populate the database with categories and products
+        """
         # If arg --delete
         if options['delete']:
             categories = Category.objects.all()

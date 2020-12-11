@@ -1,4 +1,5 @@
-from django.urls import path, include
+""" All urls for the user application """
+from django.urls import path
 from django.contrib.auth.decorators import login_required
 from  . import views
 

@@ -1,3 +1,4 @@
+""" All views for the home application """
 from django.shortcuts import render
 from django.views import View
 

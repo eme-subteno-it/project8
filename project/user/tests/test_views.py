@@ -1,3 +1,4 @@
+""" All tests for the user views application """
 from django.test import TestCase
 from django.db.models.query import QuerySet
 from user.models import User
@@ -5,6 +6,7 @@ from product.models import Product
 
 
 class RegisterViewTest(TestCase):
+    """ Class to test the view register account """
 
     def setUp(self):
         self.form_class = {
@@ -35,6 +37,7 @@ class RegisterViewTest(TestCase):
 
 
 class LoginViewTest(TestCase):
+    """ Class to test the view login account """
 
     def setUp(self):
         User.objects.create_user(
@@ -68,6 +71,7 @@ class LoginViewTest(TestCase):
 
 
 class MyAccountViewTest(TestCase):
+    """ Class to test the view my account """
 
     def setUp(self):
 
@@ -88,12 +92,13 @@ class MyAccountViewTest(TestCase):
     def test_user_connected(self):
         self.client.login(username='test_username', password='test_password_61')
         response = self.client.get('/my/account/')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'user/my_account.html')
         self.client.logout()
 
 
 class MySubstitutesViewTest(TestCase):
+    """ Class to test the view my substitutes """
 
     def setUp(self):
         self.user = User.objects.create_user(
@@ -109,7 +114,7 @@ class MySubstitutesViewTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='1',
-            nutriscore_grade='C',
+            nutriscore_grade='c',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             category_ids=[1],
@@ -162,6 +167,7 @@ class MySubstitutesViewTest(TestCase):
 
 
 class LogoutAccountViewTest(TestCase):
+    """ Class to test the logout account """
 
     def setUp(self):
         User.objects.create_user(

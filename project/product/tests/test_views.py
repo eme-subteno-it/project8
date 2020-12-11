@@ -1,10 +1,15 @@
+""" All tests for the product views application """
 from django.test import TestCase, override_settings
 from user.models import User
 from product.models import Product
-from product.views import SearchProduct
 
 
 class SearchProductViewTest(TestCase):
+    """
+        Testing the search product view.
+        This class create a product in database test
+        and a search to test the result.
+    """
 
     def setUp(self):
         self.product = Product.objects.create(
@@ -12,7 +17,7 @@ class SearchProductViewTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='2',
-            nutriscore_grade='B',
+            nutriscore_grade='b',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
@@ -42,7 +47,11 @@ class SearchProductViewTest(TestCase):
 
 
 class SubstitutesViewTest(TestCase):
-
+    """
+        Testing the substitutes view.
+        This class create a product in database test
+        and a user to test the result and saving substitutes.
+    """
     def setUp(self):
         self.user = User.objects.create_user(
             username='test_username',
@@ -57,7 +66,7 @@ class SubstitutesViewTest(TestCase):
             description='description',
             store='Auchan',
             nutriscore='2',
-            nutriscore_grade='B',
+            nutriscore_grade='b',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
@@ -95,14 +104,18 @@ class SubstitutesViewTest(TestCase):
 
 
 class ProductViewTest(TestCase):
-
+    """
+        Testing the product view.
+        This class create a product in database test
+        to test if the user display the product page.
+    """
     def setUp(self):
         self.product = Product.objects.create(
             name='Nutella',
             description='description',
             store='Auchan',
             nutriscore='2',
-            nutriscore_grade='B',
+            nutriscore_grade='b',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',

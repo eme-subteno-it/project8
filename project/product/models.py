@@ -1,7 +1,7 @@
+""" Models Product and Category """
 import string
 import random
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -25,12 +25,18 @@ class Product(models.Model):
     sugars_g = models.FloatField(default=0.0)
     salt_g = models.FloatField(default=0.0)
 
-    def save(self, *args, **kwargs):
-        self.nutriscore_grade = self.nutriscore_grade.upper()
-        return super(Product, self).save(*args, **kwargs)
-
     @classmethod
-    def create_product(cls, name, description, store, nutriscore, nutriscore_grade, image, url_api, category_ids, fat_level, satured_fat_level, sugars_level, salt_level, fat_g, satured_fat_g, sugars_g, salt_g):
+    def create_product(
+        cls, name, description, store, nutriscore, nutriscore_grade, image,
+        url_api, category_ids, fat_level, satured_fat_level, sugars_level,
+        salt_level, fat_g, satured_fat_g, sugars_g, salt_g):
+
+        """
+        Method to create a product
+
+        Return :
+            The product's QuerySet create
+        """
         categ_ids = []
         for category in category_ids:
             try:
@@ -62,9 +68,17 @@ class Product(models.Model):
         return product
 
     def calculate_substitutes(self):
+        """
+        Method to calculate a substitute about the product choose by the user.
+        The method search the best products by nutriscore and nutriscore grade.
+
+        Return :
+            Return a list of substitute's QuerySet
+        """
+
         all_substitutes = []
 
-        nutriscore_grade = string.ascii_uppercase.index(self.nutriscore_grade)
+        nutriscore_grade = string.ascii_lowercase.index(self.nutriscore_grade)
         nutriscore = self.nutriscore
 
         category_ids = self.category_ids.all().values_list('id', flat=True)
@@ -73,7 +87,8 @@ class Product(models.Model):
             products = Category.objects.get(id=categ).product_set.all()
             for product in products:
                 if product.nutriscore < nutriscore:
-                    nutriscore_grade_substitute = string.ascii_uppercase.index(product.nutriscore_grade)
+                    nutriscore_grade_substitute = string.ascii_lowercase.index(
+                        product.nutriscore_grade)
                     if nutriscore_grade_substitute < nutriscore_grade:
                         if product not in all_substitutes:
                             all_substitutes.append(product)
@@ -86,6 +101,16 @@ class Product(models.Model):
         return substitutes
 
     def save_substitute(self, user):
+        """
+        Method to save a substitute for the user.
+
+        Args :
+            param1 (Object): The user's QuerySet
+
+        Return :
+            Bool: True if user exist else False
+        """
+
         try:
             self.user_ids.add(user.id)
             return True
@@ -93,6 +118,16 @@ class Product(models.Model):
             return False
 
     def delete_substitute(self, user):
+        """
+        Method to delete a substitute for the user.
+
+        Args :
+            param1 (Object): The user's QuerySet
+
+        Return :
+            Bool: True if user exist else False
+        """
+
         try:
             self.user_ids.remove(user.id)
             return True

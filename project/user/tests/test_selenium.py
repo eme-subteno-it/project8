@@ -1,14 +1,16 @@
+""" All tests with Selenium for the user views application """
+import time
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from user.models import User
 from django.conf import settings
-import time
+from user.models import User
 
 
 class RegisterTests(StaticLiveServerTestCase):
+    """ Class to test the form register account """
 
     def setUp(self):
         self.selenium = webdriver.Chrome(executable_path=settings.SELENIUM_DRIVER_PATH)
@@ -18,7 +20,6 @@ class RegisterTests(StaticLiveServerTestCase):
     def tearDown(self):
         self.selenium.quit()
         super(RegisterTests, self).tearDown()
-        return
 
     def define_elements(self):
         username_input = self.selenium.find_element_by_id('id_username')
@@ -63,6 +64,7 @@ class RegisterTests(StaticLiveServerTestCase):
 
 
 class LoginTests(StaticLiveServerTestCase):
+    """ Class to test the form login account in the web """
 
     def setUp(self):
         self.selenium = webdriver.Chrome(executable_path=settings.SELENIUM_DRIVER_PATH)

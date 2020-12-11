@@ -1,3 +1,4 @@
+""" Inherit class to customize a command """
 from io import StringIO
 from django.test import TestCase, override_settings
 from django.core.management import call_command
@@ -7,15 +8,20 @@ from product.models import Product, Category
 class CommandTest(TestCase):
 
     def setUp(self):
-        self.category = Category.objects.create(name='Boisson', api_id='en:dried-products-to-be-rehydrated')
+        self.category = Category.objects.create(
+            name='Boisson',
+            api_id='en:dried-products-to-be-rehydrated'
+        )
         self.product = Product.objects.create(
             name='Jus d\'abricot',
             description='description',
             store='Auchan',
             nutriscore='1',
-            nutriscore_grade='A',
-            image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
-            url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
+            nutriscore_grade='a',
+            image='https://static.openfoodfacts.org/images/products/322/885/\
+                700/0852/front_fr.134.400.jpg',
+            url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-\
+                jus-d-orange-sans-pulpe-tropicana',
             fat_level='low',
             satured_fat_level='low',
             sugars_level='moderate',
@@ -27,7 +33,8 @@ class CommandTest(TestCase):
         )
         self.product.category_ids.add(self.category)
 
-    def call_command(self, *args, **kwargs):
+    @classmethod
+    def call_command(cls, *args, **kwargs):
         out = StringIO()
         call_command(
             "populate_db",

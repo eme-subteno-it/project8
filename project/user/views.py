@@ -1,14 +1,17 @@
+""" All views for the user application """
 from django.shortcuts import render, redirect
 from django.views import View
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import JsonResponse
-from .models import User
 from product.models import Product
+from .models import User
 from .forms import RegisterForm, LoginForm
 
 
 class RegisterAccount(View):
+    """ Class View to display the the form register """
+
     template_name = 'user/register.html'
     form_class = RegisterForm
 
@@ -41,16 +44,19 @@ class RegisterAccount(View):
             login(request, user)
             return redirect('user:my_account')
 
-        else:
-            return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form})
 
 
 class LoginAccount(LoginView):
+    """ Class View to display the the form login """
+
     template_name = 'user/login.html'
     authentication_form = LoginForm
 
 
 class MyAccount(View):
+    """ Class View to display the my account page """
+
     template_name = 'user/my_account.html'
 
     def get(self, request):
@@ -58,6 +64,8 @@ class MyAccount(View):
 
 
 class MySubstitutes(View):
+    """ Class View to display the my substitutes page """
+
     template_name = 'user/my_substitutes.html'
 
     def get(self, request):
@@ -82,6 +90,7 @@ class MySubstitutes(View):
 
 
 class LogoutAccount(LogoutView):
+    """ Class View to deconnect user """
 
     def get(self, request):
         logout(request)

@@ -1,11 +1,13 @@
+""" Inherit User Forms to add fields """
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import User
-from django.forms.utils import ErrorList
 
 
 class RegisterForm(UserCreationForm):
+    """ Class to inherit userCreationForm and add a field """
+
     username = forms.CharField(
         max_length=40,
         required=True,
@@ -74,10 +76,20 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'subscribed']
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2',
+            'subscribed'
+        ]
 
 
 class LoginForm(AuthenticationForm):
+    """ Class to inherit AuthenticationForm to display in wiew """
+
     username = forms.CharField(
         max_length=40,
         required=True,

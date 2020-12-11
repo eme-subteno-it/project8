@@ -1,13 +1,16 @@
+""" All views for the product application """
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from django.views import View
-from .models import Product, Category
+from django.http import JsonResponse
 from user.models import User
 from user.forms import LoginForm
-from django.http import JsonResponse
+from .models import Product
 
 
 class SearchProduct(View):
+    """ Class View to display the result of search products """
+
     template_name = 'product/result.html'
 
     def get(self, request):
@@ -27,6 +30,8 @@ class SearchProduct(View):
 
 
 class Substitutes(View):
+    """ Class View to display the substitutes of search products """
+
     template_name = 'product/substitutes.html'
     form_class = LoginForm
 
@@ -50,6 +55,8 @@ class Substitutes(View):
         return render(request, self.template_name, context)
 
     def post(self, request):
+        """ Method to save a substitute in call Ajax """
+
         if request.user.is_authenticated:
             query = request.POST.get('product_id')
             product = Product.objects.get(id=query)
@@ -64,6 +71,8 @@ class Substitutes(View):
 
 
 class ProductView(View):
+    """ Class view to display the product page choose """
+
     template_name = 'product/product.html'
 
     def get(self, request, product_id):

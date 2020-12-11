@@ -1,3 +1,4 @@
+""" All tests for the api_food api.py application """
 from django.test import TestCase
 from api_food.api import ApiFood
 from product.models import Category
@@ -6,7 +7,6 @@ from product.models import Category
 class ApiFoodTest(TestCase):
 
     def setUp(self):
-        self.maxDiff = None
         self.category = Category.objects.create(
             name='Aliments et boissons à base de végétaux',
             url_product='https://fr.openfoodfacts.org/categorie/aliments-et-boissons-a-base-de-vegetaux.json',
