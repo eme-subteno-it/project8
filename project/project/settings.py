@@ -29,9 +29,12 @@ def gettext_noop(s):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ['ENV'] == 'PROD':
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
 
 
 # Application definition
