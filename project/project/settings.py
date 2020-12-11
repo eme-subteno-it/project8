@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -146,16 +147,28 @@ LANGUAGES = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+if os.environ.get('ENV') == 'PRODUCTION':
 
-STATIC_URL = '/static/'
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'home', 'static'),
-    os.path.join(BASE_DIR, 'user', 'static'),
-    os.path.join(BASE_DIR, 'product', 'static'),
-)
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+else:
+    STATIC_URL = '/static/'
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'home', 'static'),
+        os.path.join(BASE_DIR, 'user', 'static'),
+        os.path.join(BASE_DIR, 'product', 'static'),
+    )
 
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
@@ -170,4 +183,5 @@ LOGIN_REDIRECT_URL = 'user:my_account'
     - WINDOWS = '/Your/path/driver/chromedriver.exe'
 """
 SELENIUM_DRIVER = 'Chrome'
-SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
+if os.environ['ENV'] != 'PROD':
+    SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
