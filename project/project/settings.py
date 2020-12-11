@@ -38,7 +38,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com', '0.0.0.0']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'api_food.apps.ApiFoodConfig',
     'home.apps.HomeConfig',
