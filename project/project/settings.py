@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import dj_database_url
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -102,7 +103,7 @@ DATABASES = {
     }
 }
 
-if os.environ.get('ENV') == 'PRODUCTION':
+if os.environ.get('ENV') == 'PROD':
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
@@ -149,28 +150,28 @@ LANGUAGES = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-if os.environ.get('ENV') == 'PROD':
+STATIC_URL = '/static/'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# if os.environ.get('ENV') == 'PROD':
+#     # Static files settings
+#     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+#     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-    # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+#     # Extra places for collectstatic to find static files.
+#     STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
 
-    # Extra places for collectstatic to find static files.
-    STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
+#     # Simplified static file serving.
+#     # https://warehouse.python.org/project/whitenoise/
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-else:
-    STATIC_URL = '/static/'
-
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'home', 'static'),
-        os.path.join(BASE_DIR, 'user', 'static'),
-        os.path.join(BASE_DIR, 'product', 'static'),
-    )
+#     STATICFILES_DIRS = (
+#         os.path.join(BASE_DIR, 'home', 'static'),
+#         os.path.join(BASE_DIR, 'user', 'static'),
+#         os.path.join(BASE_DIR, 'product', 'static'),
+#     )
 
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
@@ -187,3 +188,5 @@ LOGIN_REDIRECT_URL = 'user:my_account'
 SELENIUM_DRIVER = 'Chrome'
 if os.environ['ENV'] != 'PROD':
     SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
+
+django_heroku.settings(locals())
