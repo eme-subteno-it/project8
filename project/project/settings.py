@@ -64,7 +64,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -149,8 +148,12 @@ LANGUAGES = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'home', 'static'),
+    os.path.join(BASE_DIR, 'user', 'static'),
+    os.path.join(BASE_DIR, 'product', 'static'),
+)
 # if os.environ.get('ENV') == 'PROD':
 #     # Static files settings
 #     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -161,7 +164,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 #     # Simplified static file serving.
 #     # https://warehouse.python.org/project/whitenoise/
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # else:
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -188,4 +190,5 @@ SELENIUM_DRIVER = 'Chrome'
 if os.environ['ENV'] != 'PROD':
     SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
 
-django_heroku.settings(locals())
+if os.environ['ENV'] == 'PROD':
+    django_heroku.settings(locals())
