@@ -109,7 +109,6 @@ if os.environ.get('ENV') == 'PROD':
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -128,7 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'Europe/Paris'
@@ -173,6 +171,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 #         os.path.join(BASE_DIR, 'product', 'static'),
 #     )
 
+# Config auth model
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
 
