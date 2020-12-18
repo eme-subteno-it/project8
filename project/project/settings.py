@@ -136,8 +136,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
-LOCALE_PATHS = (os.path.join(SITE_ROOT, 'locale'),)
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
 LANGUAGES = (
     ('en', gettext_noop('English')),
