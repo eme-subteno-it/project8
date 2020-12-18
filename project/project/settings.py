@@ -139,8 +139,8 @@ USE_TZ = True
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
 LANGUAGES = (
-    ('en', gettext_noop('English')),
     ('fr', gettext_noop('French')),
+    ('en', gettext_noop('English')),
 )
 
 
