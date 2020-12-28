@@ -33,6 +33,7 @@ class ApiFoodTest(TestCase):
                 'id': 'en:plant-based-foods'
             }
         ]
+        satured_fat_g = str(0.4)
         self.product_mock = [
             {
                 'name': 'Gazpacho',
@@ -63,7 +64,7 @@ class ApiFoodTest(TestCase):
                 'sugars_level': 'moderate',
                 'salt_level': 'moderate',
                 'fat_g': str(2.6),
-                'satured_fat_g': str(0.4),
+                'satured_fat_g': satured_fat_g,
                 'sugars_g': str(3.1),
                 'salt_g': str(0.61)
             }
