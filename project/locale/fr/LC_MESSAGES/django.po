@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-17 15:27+0100\n"
+"POT-Creation-Date: 2021-01-15 13:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -258,13 +258,13 @@ msgstr "Ce produit n'existe pas."
 msgid "This product does not exist sorry."
 msgstr "Ce produit n'existe pas désolé."
 
+#: project/settings.py:142
+msgid "French"
+msgstr "Français"
+
 #: project/settings.py:143
 msgid "English"
 msgstr "Anglais"
-
-#: project/settings.py:144
-msgid "French"
-msgstr "Français"
 
 #: user/forms.py:16 user/forms.py:98
 msgid "Username"
@@ -330,6 +330,10 @@ msgstr "substitut"
 #: user/templates/user/my_substitutes.html:23
 msgid "saved"
 msgstr "enregistré"
+
+#: user/templates/user/my_substitutes.html:35
+msgid " Delete"
+msgstr "Supprimer"
 
 #: user/templates/user/my_substitutes.html:43
 msgid "Your substitutes saved"
