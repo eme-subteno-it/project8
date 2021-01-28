@@ -175,6 +175,7 @@ STATICFILES_DIRS = (
 # Config auth model
 AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
+AUTHENTICATION_BACKENDS = ['user.backends.EmailBackend']
 
 """
     FUNCTIONALS TESTS_

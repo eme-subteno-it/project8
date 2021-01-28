@@ -90,12 +90,12 @@ class RegisterForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     """ Class to inherit AuthenticationForm to display in wiew """
 
-    username = forms.CharField(
-        max_length=40,
+    username = forms.EmailField(
+        max_length=250,
         required=True,
-        widget=forms.TextInput(
+        widget=forms.EmailInput(
             attrs={
-                'placeholder': _('Username'),
+                'placeholder': _('Email'),
                 'class': 'form-control'
             }
         ),
@@ -111,7 +111,3 @@ class LoginForm(AuthenticationForm):
             }
         ),
     )
-
-    class Meta:
-        model = User
-        fields = ('username', 'password')
