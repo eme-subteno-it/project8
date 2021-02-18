@@ -29,13 +29,13 @@ def gettext_noop(s):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
+DEBUG = True
+
 if os.environ.get('ENV'):
     if os.environ.get('ENV') == 'PROD':
         DEBUG = False
         SECRET_KEY = os.environ.get('SECRET_KEY')
-    else:
-        DEBUG = True
-        SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
 
