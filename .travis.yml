@@ -16,4 +16,4 @@ services:
   - postgresql
 
 script:
-  - ./project/manage.py test
+  - ./project/manage.py test project
