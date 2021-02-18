@@ -15,7 +15,7 @@ import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # This is defined here as a do-nothing function because we can't import
@@ -29,14 +29,10 @@ def gettext_noop(s):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ['ENV'] == 'PROD':
-    DEBUG = False
-    SECRET_KEY = os.environ['SECRET_KEY']
-else:
-    DEBUG = True
-    SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
+DEBUG = True
+SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
 
 
 # Application definition
