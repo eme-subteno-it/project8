@@ -1,8 +1,19 @@
 from . import settings
+import os
+import dj_database_url
+import django_heroku
+from pathlib import Path
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%_uznehy!@e-(g5%ubafz4jvtd(iz(=g%x0%zj&km09ktj&-^6'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
+
+# This is defined here as a do-nothing function because we can't import
+# django.utils.translation -- that module depends on the settings.
+def gettext_noop(s):
+    return s
 
 
 # Application definition
