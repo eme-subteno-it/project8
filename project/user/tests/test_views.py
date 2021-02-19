@@ -49,7 +49,7 @@ class LoginViewTest(TestCase):
             subscribed=True
         )
         self.form_class = {
-            'username': 'test_username',
+            'username': 'email@test.com',
             'password': 'test_password_61',
         }
 
@@ -90,7 +90,7 @@ class MyAccountViewTest(TestCase):
         self.assertEqual(response.url, '/accounts/login/?next=/my/account/')
 
     def test_user_connected(self):
-        self.client.login(username='test_username', password='test_password_61')
+        self.client.login(username='email@test.com', password='test_password_61')
         response = self.client.get('/my/account/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'user/my_account.html')
@@ -135,7 +135,7 @@ class MySubstitutesViewTest(TestCase):
         self.assertEqual(response.url, '/accounts/login/?next=/my/substitutes/')
 
     def test_get_user_connected(self):
-        self.client.login(username='test_username', password='test_password_61')
+        self.client.login(username='email@test.com', password='test_password_61')
         response = self.client.get('/my/substitutes/')
 
         self.assertEqual(response.status_code, 200)
@@ -153,7 +153,7 @@ class MySubstitutesViewTest(TestCase):
         self.assertEqual(response.url, '/accounts/login/?next=/my/substitutes/')
 
     def test_post_user_connected(self):
-        self.client.login(username='test_username', password='test_password_61')
+        self.client.login(username='email@test.com', password='test_password_61')
         response = self.client.get('/my/substitutes/')
 
         self.assertEqual(response.status_code, 200)
@@ -180,7 +180,7 @@ class LogoutAccountViewTest(TestCase):
         )
 
     def test_get_request_user_connected(self):
-        self.client.login(username='test_username', password='test_password_61')
+        self.client.login(username='email@test.com', password='test_password_61')
         response = self.client.get('/logout/')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/')

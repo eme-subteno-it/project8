@@ -30,7 +30,7 @@ class RegisterTests(StaticLiveServerTestCase):
         password2_input = self.selenium.find_element_by_id('id_password2')
         subscribed_input = self.selenium.find_element_by_id('id_subscribed')
 
-        username_input.send_keys('test_username')
+        username_input.send_keys('email@test.com')
         email_input.send_keys('email@test.com')
         first_name_input.send_keys('test_first_name')
         last_name_input.send_keys('test_last_name')
@@ -87,7 +87,7 @@ class LoginTests(StaticLiveServerTestCase):
     def define_elements(self):
         username_input = self.selenium.find_element_by_id("id_username")
         password_input = self.selenium.find_element_by_id("id_password")
-        username_input.send_keys('test_username')
+        username_input.send_keys('email@test.com')
         password_input.send_keys('test_password_61')
 
     def test_login_click(self):

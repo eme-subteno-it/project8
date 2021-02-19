@@ -1,4 +1,3 @@
-from . import settings
 import os
 import dj_database_url
 import django_heroku
@@ -14,7 +13,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
 # django.utils.translation -- that module depends on the settings.
 def gettext_noop(s):
     return s
-
 
 # Application definition
 INSTALLED_APPS = [

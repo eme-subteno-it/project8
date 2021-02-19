@@ -93,7 +93,7 @@ class SubstitutesViewTest(TestCase):
         )
 
     def test_post_request_with_user(self):
-        self.client.login(username='test_username', password='test_password_61')
+        self.client.login(username='email@test.com', password='test_password_61')
         response = self.client.post('/save_substitute/', {'product_id': self.product.id})
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(
