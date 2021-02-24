@@ -67,7 +67,7 @@ class LoginTests(StaticLiveServerTestCase):
     """ Class to test the form login account in the web """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(executable_path=settings.SELENIUM_DRIVER_PATH)
+        self.selenium = webdriver.Chrome()
         self.wait = WebDriverWait(self.selenium, 1000)
         User.objects.create_user(
             username='test_username',
