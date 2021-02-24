@@ -2,6 +2,7 @@
 import time
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -13,7 +14,7 @@ class RegisterTests(StaticLiveServerTestCase):
     """ Class to test the form register account """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome()
+        self.selenium = webdriver.Chrome(ChromeDriverManager().install())
         self.wait = WebDriverWait(self.selenium, 1000)
         super(RegisterTests, self).setUp()
 
@@ -67,7 +68,7 @@ class LoginTests(StaticLiveServerTestCase):
     """ Class to test the form login account in the web """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome()
+        self.selenium = webdriver.Chrome(ChromeDriverManager().install())
         self.wait = WebDriverWait(self.selenium, 1000)
         User.objects.create_user(
             username='test_username',
