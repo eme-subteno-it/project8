@@ -50,7 +50,7 @@ if os.environ.get('ENV'):
         DEBUG = False
         SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
+ALLOWED_HOSTS = ['178.62.65.28', '127.0.0.1', 'project8-elodiemeunier.herokuapp.com']
 
 
 # Application definition
