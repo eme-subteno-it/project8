@@ -8,13 +8,19 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from django.conf import settings
 from user.models import User
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
 
 
 class RegisterTests(StaticLiveServerTestCase):
     """ Class to test the form register account """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(ChromeDriverManager().install())
+        self.selenium = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
         self.wait = WebDriverWait(self.selenium, 1000)
         super(RegisterTests, self).setUp()
 
@@ -68,7 +74,7 @@ class LoginTests(StaticLiveServerTestCase):
     """ Class to test the form login account in the web """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(ChromeDriverManager().install())
+        self.selenium = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
         self.wait = WebDriverWait(self.selenium, 1000)
         User.objects.create_user(
             username='test_username',
