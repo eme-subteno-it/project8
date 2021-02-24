@@ -13,7 +13,7 @@ class RegisterTests(StaticLiveServerTestCase):
     """ Class to test the form register account """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(executable_path=settings.SELENIUM_DRIVER_PATH)
+        self.selenium = webdriver.Chrome()
         self.wait = WebDriverWait(self.selenium, 1000)
         super(RegisterTests, self).setUp()
 
