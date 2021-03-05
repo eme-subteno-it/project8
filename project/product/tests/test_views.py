@@ -1,7 +1,7 @@
 """ All tests for the product views application """
 from django.test import TestCase, override_settings
 from user.models import User
-from product.models import Product
+from product.models import Product, Category
 
 
 class SearchProductViewTest(TestCase):
@@ -61,11 +61,68 @@ class SubstitutesViewTest(TestCase):
             password='test_password_61',
             subscribed=True
         )
+        self.category = Category.objects.create(
+            name='Boisson',
+        )
         self.product = Product.objects.create(
             name='Nutella',
             description='description',
             store='Auchan',
             nutriscore='2',
+            nutriscore_grade='d',
+            image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
+            url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
+            fat_level='low',
+            satured_fat_level='low',
+            sugars_level='moderate',
+            salt_level='low',
+            fat_g=0,
+            satured_fat_g=0,
+            sugars_g=8.9,
+            salt_g=0
+        )
+        self.product.category_ids.add(self.category)
+        self.substitute = Product.objects.create(
+            name='Confiture',
+            description='description',
+            store='Auchan',
+            nutriscore='1',
+            nutriscore_grade='c',
+            image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
+            url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
+            fat_level='low',
+            satured_fat_level='low',
+            sugars_level='moderate',
+            salt_level='low',
+            fat_g=0,
+            satured_fat_g=0,
+            sugars_g=8.9,
+            salt_g=0
+        )
+
+        self.substitute2 = Product.objects.create(
+            name='Pain de mie',
+            description='description',
+            store='Auchan',
+            nutriscore='1',
+            nutriscore_grade='a',
+            image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
+            url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
+            fat_level='low',
+            satured_fat_level='low',
+            sugars_level='moderate',
+            salt_level='low',
+            fat_g=0,
+            satured_fat_g=0,
+            sugars_g=8.9,
+            salt_g=0
+        )
+
+        self.substitute3 = Product.objects.create(
+            name='Confiture',
+            description='description',
+            store='Auchan',
+            nutriscore='1',
             nutriscore_grade='b',
             image='https://static.openfoodfacts.org/images/products/322/885/700/0852/front_fr.134.400.jpg',
             url_api='https://fr.openfoodfacts.org/produit/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana',
@@ -78,6 +135,10 @@ class SubstitutesViewTest(TestCase):
             sugars_g=8.9,
             salt_g=0
         )
+
+        self.substitute.category_ids.add(self.category)
+        self.substitute2.category_ids.add(self.category)
+        self.substitute3.category_ids.add(self.category)
 
     def test_get_request(self):
         response = self.client.get('/search/substitutes/%s/' % self.product.id)
@@ -101,6 +162,15 @@ class SubstitutesViewTest(TestCase):
             {'status': 'success'}
         )
         self.client.logout()
+
+    def test_display_list_substitutes(self):
+        response = self.client.get('/search/substitutes/%s/' % self.product.id)
+        substitutes = response.context['substitutes']
+        nutriscores = []
+        for sub in substitutes:
+            nutriscores.append(sub.nutriscore_grade)
+
+        self.assertEqual(nutriscores, sorted(nutriscores))
 
 
 class ProductViewTest(TestCase):
