@@ -28,6 +28,7 @@
                 </div>
                 <div class="modal-body">
                     {% include 'user/login_form.html' %}
+                    <p>{% translate 'You do not have an account ? It is by' %} <a class="register_in_modal" href="{% url 'user:register' %}">{% translate 'here' %}</a>.</p>
                 </div>
             </div>
         </div>
@@ -76,5 +77,7 @@
     </div>
 </section>
 {% endblock %}
-
-{% block js %}<script src="{% static 'js/save_substitute.js' %}"></script>{% endblock %}
+{% block js %}
+    <script src="{% static 'js/cookies.js' %}"></script>
+    <script src="{% static 'js/save_substitute.js' %}"></script>
+{% endblock %}

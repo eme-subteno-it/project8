@@ -12,83 +12,82 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fr \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: api_food/management/commands/populate_db.py:11
 msgid "Populating the database via the Openfoodfact API"
-msgstr "Remplir la base de données via l'API Openfoodfact"
+msgstr "Popolamento del database tramite l'API Openfoodfact"
 
 #: api_food/management/commands/populate_db.py:19
 msgid "Delete products and categories instead of closing it"
-msgstr "Supprimer les produits et les catégories au lieu de les fermer"
+msgstr "Elimina prodotti e categorie invece di chiuderlo"
 
 #: api_food/management/commands/populate_db.py:36
 msgid "The products and their categories have been deleted"
-msgstr "Les produits et leurs catégories ont été supprimés"
+msgstr "I prodotti e le loro categorie sono stati eliminati"
 
 #: api_food/management/commands/populate_db.py:38
 msgid "The database is already empty."
-msgstr "La base de données est déjà vide."
+msgstr "Il database è già vuoto."
 
 #: api_food/management/commands/populate_db.py:41
 msgid "Add the categories from api OpenfoodFact"
-msgstr "Ajout des catégories de l'API OpenfoodFact"
+msgstr "Aggiungi le categorie da api OpenfoodFact"
 
 #: api_food/management/commands/populate_db.py:54
 msgid "Add the products now"
-msgstr "Ajout des produits maintenant"
+msgstr "Aggiungi i prodotti adesso"
 
 #: home/templates/404.html:4 home/templates/404.html:13
 #: product/templates/404.html:4 product/templates/404.html:13
 #: user/templates/404.html:4 user/templates/404.html:13
 msgid "404 Error"
-msgstr "Erreur 404"
+msgstr "Errore 404"
 
 #: home/templates/404.html:15 product/templates/404.html:15
 #: user/templates/404.html:15
 msgid "Page not found, sorry !"
-msgstr "Page non trouvé, désolé !"
+msgstr "Pagina non trovata, mi dispiace!"
 
 #: home/templates/500.html:4 home/templates/500.html:13
 #: product/templates/500.html:4 product/templates/500.html:13
 #: user/templates/500.html:4 user/templates/500.html:13
 msgid "500 Error"
-msgstr "Erreur 500"
+msgstr "Errore 500"
 
 #: home/templates/500.html:15 product/templates/500.html:15
 #: user/templates/500.html:15
 msgid "Oops, an error has occured!"
-msgstr "Oops, une erreur est survenue !"
+msgstr "Ops, si è verificato un errore!"
 
 #: home/templates/home/base.html:55
 msgid "Language"
-msgstr "Langage"
+msgstr "linguaggio"
 
 #: home/templates/home/base.html:101 home/templates/home/legal_notice.html:4
 #: home/templates/home/legal_notice.html:11
 msgid "Legal notices"
-msgstr "Mentions légales"
+msgstr "Note legali"
 
 #: home/templates/home/base.html:104
 msgid "Contact"
-msgstr "Contact"
+msgstr "Contatto"
 
 #: home/templates/home/index.html:12 home/templates/home/legal_notice.html:33
 msgid "Fat, yes, but of quality!"
-msgstr "Du gras, oui, mais de qualité !"
+msgstr "Grasso, sì, ma di qualità!"
 
 #: home/templates/home/index.html:16
 msgid "Find a substitute for the ones you eat every day."
-msgstr ""
-"Trouvez un produit de substitution pour ceux que vous consommez tous les "
-"jours."
+msgstr "Trova un sostituto di quelli che mangi ogni giorno."
 
 #: home/templates/home/index.html:29 home/templates/home/legal_notice.html:25
 msgid "Colette and Rémy"
-msgstr "Colette et Rémy"
+msgstr "Colette e Rémy"
 
 #: home/templates/home/index.html:31
 msgid ""
@@ -96,9 +95,9 @@ msgid ""
 "Tatou and Rémy, whom you have certainly already met in our excellent "
 "restaurant Ratatouille."
 msgstr ""
-"Pur Beurre est l'initiative de deux amoureux de la gastronomie française, "
-"Colette Tatou et Rémy, que vous avez déjà certainement rencontrés dans notre "
-"excellent restaurant Ratatouille."
+"Pur Beurre è l'iniziativa di due amanti della gastronomia francese, Colette "
+"Tatou e Rémy, che sicuramente avete già incontrato nel nostro eccellente "
+"ristorante Ratatouille."
 
 #: home/templates/home/index.html:33
 msgid ""
@@ -108,13 +107,12 @@ msgid ""
 "opened the restaurant, that I could replace the sanitized products that I "
 "used to buy with good local products And often for the same price!"
 msgstr ""
-"Nous aimons tous manger, surtout en France ! Personnellement, une baguette "
-"fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent "
-"amplement. Comme tout le monde, je fais mes courses au supermarché. Mais "
-"petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le "
-"restaurant, que je pouvais remplacer les produits aseptisés que j'avais "
-"l'habitude d'acheter par de bons produits du terroir Et souvent pour le même "
-"prix !"
+"Tutti amiamo mangiare, soprattutto in Francia! Personalmente, una baguette "
+"fresca, buona Mi bastano il formaggio di capra e un buon vino rosso. Come "
+"tutti, lo faccio la mia spesa al supermercato. Ma pian piano me ne sono reso "
+"conto, soprattutto quando noi ha aperto il ristorante, che avrei potuto "
+"sostituire i prodotti igienizzati che io si comprava con buoni prodotti "
+"locali e spesso allo stesso prezzo!"
 
 #: home/templates/home/index.html:34
 msgid ""
@@ -125,24 +123,24 @@ msgid ""
 "Nutella with something healthier, I knew immediately where to find it. The "
 "idea of Pur Beurre was born!"
 msgstr ""
-"Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup "
-"me balader, surtout dans les caves et les cuisines. Je connaissais par coeur "
-"le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de "
-"tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait "
-"remplacer son Nutella matinal par un aliment plus sain, je savais tout de "
-"suite où le trouver. L'idée de Pur Beurre était née !"
+"Da parte mia, andavo già in molti negozi perché mi piace molto passeggiare, "
+"soprattutto nelle cantine e nelle cucine. Conoscevo a memoria il i contenuti "
+"dei negozi biologici (che adoro) e gli ingredienti di tutti i cibi venduti. "
+"Quando Colette mi ha chiesto se poteva sostituire la sua mattinata Nutella "
+"con qualcosa di più sano, ho capito subito dove trovarla. La l'idea di Pur "
+"Beurre è nata!"
 
 #: home/templates/home/index.html:63
 msgid "Contact us !"
-msgstr "Contactez-nous"
+msgstr "Contattaci !"
 
 #: home/templates/home/index.html:65
 msgid "Ready to take care of yourself?"
-msgstr "Prêt à prendre soin de vous ?"
+msgstr "Pronto a prenderti cura di te stesso?"
 
 #: home/templates/home/legal_notice.html:19
 msgid "Legal informations"
-msgstr "Informations légales"
+msgstr "Informazioni legali"
 
 #: home/templates/home/legal_notice.html:20
 msgid ""
@@ -151,10 +149,10 @@ msgid ""
 "identity of the various shareholders within the framework of its realization "
 "and its follow-up:"
 msgstr ""
-"En vertu de l'article 6 de la loi n ° 2004-575 du 21 juin 2004 pour la "
-"confiance dans l'économie numérique, il est précisé aux utilisateurs du site "
-"purbeurre.fr, l'identité des différents actionnaires dans le cadre de sa "
-"réalisation et de son suivi:"
+"In virtù dell'articolo 6 della legge n ° 2004-575 del 21 giugno 2004 sulla "
+"fiducia nei l'economia digitale, è chiaro agli utenti del sito purbeurre.fr, "
+"il identità dei vari azionisti nell'ambito della sua realizzazione e il suo "
+"seguito:"
 
 #: home/templates/home/legal_notice.html:21
 msgid ""
@@ -162,131 +160,119 @@ msgid ""
 "this site is the subject of a declaration to the CNIL - dated November 19, "
 "2015 - receipt of declaration n ° 190 6255"
 msgstr ""
-"Conformément à la loi \"Informatique et Libertés\" du 6 janvier 1978, le "
-"présent site fait l'objet d'une déclaration à la CNIL - en date du 19 "
-"Novembre 2015 - récépissé de déclaration n°190 6255"
+"In conformità con la legge \"Informatica e libertà\" del 6 gennaio 1978, "
+"questo sito è oggetto di una dichiarazione alla CNIL - datata 19 novembre, "
+"2015 - ricevimento della dichiarazione n ° 190 6255"
 
 #: home/templates/home/legal_notice.html:24
 msgid "Owner"
-msgstr "Propriétaire"
+msgstr "Proprietario"
 
 #: home/templates/home/legal_notice.html:28
 msgid "Brand"
-msgstr "Marque"
+msgstr "Marca"
 
 #: home/templates/home/legal_notice.html:32
 msgid "Catch phrase"
-msgstr "Phrase d'accroche"
+msgstr "Frase di cattura"
 
 #: home/templates/home/search_form.html:5
 msgid "Product"
-msgstr "Produit"
+msgstr "Prodotto"
 
 #: home/templates/home/search_form.html:7
 msgid "Search"
-msgstr "Rechercher"
+msgstr "Ricerca"
 
 #: product/templates/product/product.html:27
 msgid "Nutritional guidelines for 100g"
-msgstr "Repères nutritionnels pour 100g"
+msgstr "Linee guida nutrizionali per 100 g"
 
 #: product/templates/product/product.html:30
 msgid "Fat / Lipids in quantity"
-msgstr "Matières grasses / Lipides en quantité"
+msgstr "Grassi / lipidi in quantità"
 
 #: product/templates/product/product.html:34
 msgid "Saturated fatty acids in quantity"
-msgstr "Acides gras saturés en quantité"
+msgstr "Acidi grassi saturi in quantità"
 
 #: product/templates/product/product.html:38
 msgid "Sugars in quantity"
-msgstr "Sucres en quantité"
+msgstr "Zuccheri in quantità"
 
 #: product/templates/product/product.html:42
 msgid "Salt in quantity"
-msgstr "Sel en quantité"
-
-#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
-msgid "moderate"
-msgstr "modérée"
-
-#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
-msgid "low"
-msgstr "faible"
-
-#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
-msgid "high"
-msgstr "élevée"
+msgstr "Sale in quantità"
 
 #: product/templates/product/product.html:48
 msgid "See the OpenFoodFacts file"
-msgstr "Voir la fiche d'OpenFoodFacts"
+msgstr "Vedi il file OpenFoodFacts"
 
 #: product/templates/product/result.html:4
 msgid "Result"
-msgstr "Résultat"
+msgstr "Risultato"
 
 #: product/templates/product/result.html:18
 msgid "Result of search"
-msgstr "Résultat de la recherche"
+msgstr "Risultato della ricerca"
 
 #: product/templates/product/result.html:27
 msgid "No product found, search for another product"
-msgstr "Aucun produit trouvé, recherchez un autre produit"
+msgstr "Nessun prodotto trovato, cerca un altro prodotto"
 
 #: product/templates/product/result.html:29
 msgid "Which item do you want to substitute?"
-msgstr "Quel article voulez-vous substituer ?"
+msgstr "Quale articolo vuoi sostituire?"
 
 #: product/templates/product/substitutes.html:4
 msgid "Substitutes"
-msgstr "Substituts"
+msgstr "Sostituti"
 
 #: product/templates/product/substitutes.html:24
 msgid "You must log in"
-msgstr "Vous devez vous connecter"
+msgstr "Devi effettuare il login"
 
 #: product/templates/product/substitutes.html:31
 #: user/templates/user/login.html:22
 msgid "You do not have an account ? It is by"
-msgstr "Vous n'avez pas de compte ? C'est par"
+msgstr "Non hai un account? È di"
 
 #: product/templates/product/substitutes.html:31
 #: user/templates/user/login.html:22
 msgid "here"
-msgstr "ici"
+msgstr "Qui"
 
 #: product/templates/product/substitutes.html:49 product/views.py:50
 msgid "Your product has been saved."
-msgstr "Votre produit a bien été sauvegardé."
+msgstr "Il tuo prodotto è stato salvato."
 
 #: product/templates/product/substitutes.html:57
 msgid "You can replace this food with:"
-msgstr "Vous pouvez remplacer cet aliment par : "
+msgstr "Puoi sostituire questo alimento con:"
 
 #: product/templates/product/substitutes.html:70
 msgid " Save"
-msgstr " Sauvegarder"
+msgstr " Salva"
 
 #: product/views.py:19
 msgid "This product does not exist."
-msgstr "Ce produit n'existe pas."
+msgstr "Questo prodotto non esiste."
 
 #: product/views.py:24
 msgid "This product does not exist sorry."
-msgstr "Ce produit n'existe pas désolé."
+msgstr "Questo prodotto non esiste mi dispiace."
 
 #: project/settings/config.py:156
 msgid "French"
-msgstr "Français"
+msgstr "Francese"
 
 #: project/settings/config.py:157
 msgid "English"
-msgstr "Anglais"
+msgstr "Inglese"
 
 #: project/settings/config.py:158
 msgid "Spanish"
-msgstr "Espagnol"
+msgstr "Spagnolo"
 
 #: project/settings/config.py:159
 msgid "Italian"
@@ -298,81 +284,81 @@ msgstr ""
 
 #: user/forms.py:16
 msgid "Username"
-msgstr "Pseudo"
+msgstr "Nome utente"
 
 #: user/forms.py:26
 msgid "First name"
-msgstr "Prénom"
+msgstr "Nome di battesimo"
 
 #: user/forms.py:36
 msgid "Last name"
-msgstr "Nom de famille"
+msgstr "Cognome"
 
 #: user/forms.py:46 user/forms.py:98
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #: user/forms.py:56 user/forms.py:109
 msgid "Password"
-msgstr "Mot de passe"
+msgstr "Parola d'ordine"
 
 #: user/forms.py:66
 msgid "Password confirmation"
-msgstr "Confirmation du mot de passe"
+msgstr "Conferma password"
 
 #: user/forms.py:73
 msgid "be informed of a V2 of the site ?"
-msgstr "être informé d'une V2 du site ?"
+msgstr "essere informato di una V2 del sito?"
 
 #: user/templates/user/login.html:4 user/templates/user/login.html:11
 #: user/templates/user/login_form.html:16
 msgid "Sign in"
-msgstr "Se connecter"
+msgstr "Registrati"
 
 #: user/templates/user/login_form.html:19
 msgid "Your username and password do not match."
-msgstr "Votre nom d'utilisateur et le mot de passe ne correspondent pas."
+msgstr "Il tuo nome utente e la tua password non corrispondono."
 
 #: user/templates/user/my_account.html:4
 msgid "My account"
-msgstr "Mon compte"
+msgstr "Il mio account"
 
 #: user/templates/user/my_account.html:32
 msgid "See your products"
-msgstr "Voir vos produits"
+msgstr "Guarda i tuoi prodotti"
 
 #: user/templates/user/my_substitutes.html:23
 msgid "You have "
-msgstr "Vous avez "
+msgstr "Hai "
 
 #: user/templates/user/my_substitutes.html:23
 msgid "substitute"
-msgstr "substitut"
+msgstr "sostituto"
 
 #: user/templates/user/my_substitutes.html:23
 msgid "saved"
-msgstr "enregistré"
+msgstr "salvato"
 
 #: user/templates/user/my_substitutes.html:35
 msgid " Delete"
-msgstr " Supprimer"
+msgstr " Elimina"
 
 #: user/templates/user/my_substitutes.html:43
 msgid "Your substitutes saved"
-msgstr "Vos substituts sauvegardés"
+msgstr "I tuoi sostituti salvati"
 
 #: user/templates/user/my_substitutes.html:46
 msgid "No registered substitutes."
-msgstr "Aucun substituts enregistrés."
+msgstr "Nessun sostituto registrato."
 
 #: user/templates/user/my_substitutes.html:47
 msgid "Search for products: "
-msgstr "Rechercher des produits : "
+msgstr "Cerca prodotti: "
 
 #: user/templates/user/register.html:4 user/templates/user/register.html:12
 msgid "I create my account"
-msgstr "Je créé mon compte"
+msgstr "Creo il mio account"
 
 #: user/templates/user/register.html:41
 msgid "Sign up"
-msgstr "S'inscrire"
+msgstr "Iscriviti"
