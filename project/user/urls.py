@@ -1,7 +1,9 @@
 """ All urls for the user application """
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth.decorators import login_required
 from  . import views
+from django.urls import reverse_lazy
+
 
 app_name = 'user'
 urlpatterns = [
@@ -10,5 +12,5 @@ urlpatterns = [
     path('my/account/', login_required(views.MyAccount.as_view()), name='my_account'),
     path('my/substitutes/', login_required(views.MySubstitutes.as_view()), name='my_substitutes'),
     path('delete_substitute/', login_required(views.MySubstitutes.as_view()), name='delete_substitutes'),
-    path('logout/', views.LogoutAccount.as_view(), name='logout')
+    path('logout/', views.LogoutAccount.as_view(), name='logout'),
 ]

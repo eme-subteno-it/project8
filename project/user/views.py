@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, logout
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.http import JsonResponse
 from product.models import Product
 from .models import User

@@ -100,7 +100,6 @@ class Product(models.Model):
             substitutes = random.sample(all_substitutes, len(all_substitutes))
 
         substitutes = sorted(substitutes, key=attrgetter('nutriscore_grade'))
-
         return substitutes
 
     def save_substitute(self, user):
