@@ -2,6 +2,7 @@
 from django.test import TestCase, override_settings
 from user.models import User
 from product.models import Product, Category
+from operator import attrgetter
 
 
 class SearchProductViewTest(TestCase):
@@ -166,11 +167,7 @@ class SubstitutesViewTest(TestCase):
     def test_display_list_substitutes(self):
         response = self.client.get('/search/substitutes/%s/' % self.product.id)
         substitutes = response.context['substitutes']
-        nutriscores = []
-        for sub in substitutes:
-            nutriscores.append(sub.nutriscore_grade)
-
-        self.assertEqual(nutriscores, sorted(nutriscores))
+        self.assertEqual(substitutes, sorted(substitutes, key=attrgetter('nutriscore_grade')))
 
 
 class ProductViewTest(TestCase):
