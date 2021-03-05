@@ -2,6 +2,7 @@
 import string
 import random
 from django.db import models
+from operator import attrgetter
 
 
 class Product(models.Model):
@@ -97,6 +98,8 @@ class Product(models.Model):
             substitutes = random.sample(all_substitutes, 30)
         else:
             substitutes = random.sample(all_substitutes, len(all_substitutes))
+
+        substitutes = sorted(substitutes, key=attrgetter('nutriscore_grade'))
 
         return substitutes
 
