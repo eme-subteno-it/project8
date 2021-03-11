@@ -51,16 +51,16 @@
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownLanguageButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {% translate 'Language' %}
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="dropdownLanguageButton">
                             {% get_current_language as LANGUAGE_CODE %}
                             {% get_available_languages as LANGUAGES %}
                             {% get_language_info_list for LANGUAGES as languages %}
                             {% for language in languages %}
                                 <button name="language" class="dropdown-item" type="submit" value="{{ language.code }}" class="{% if language.code == LANGUAGE_CODE %} selected{% endif %}">
-                                    {{ language.name_local }} ({{ language.code }})
+                                    {{ language.name_local }} <img class="flag" src="{% static 'img/flags/' %}{{ language.code }}.png" alt="">
                                 </button>
                             {% endfor %}
                         </div>

@@ -121,3 +121,11 @@ header.masthead-legal-notice h1 {
     font-weight: bold;
     font-style: normal;
 }
+
+.menu_language {
+    margin-right: 30px;
+}
+
+.flag {
+    width: 20px;
+}
