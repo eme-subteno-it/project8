@@ -117,7 +117,7 @@ class ProductModelTest(TestCase):
 
     def test_calculate_substitutes(self):
         product = Product.objects.get(id=self.product.id)
-        self.assertCountEqual(product.calculate_substitutes(), [self.substitute, self.substitute2])
+        self.assertCountEqual(product.calculate_substitutes(20), [self.substitute, self.substitute2])
 
     def test_save_substitute(self):
         product = Product.objects.get(id=self.product.id)
