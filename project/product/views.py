@@ -54,7 +54,7 @@ class Substitutes(View):
 
         return render(request, self.template_name, context)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         """ Method to save a substitute in call Ajax """
         number_list = request.POST.get('number')
         if number_list:

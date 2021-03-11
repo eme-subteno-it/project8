@@ -1,11 +1,12 @@
 """ Models Product and Category """
 import string
 import random
-from django.db import models
 from operator import attrgetter
+from django.db import models
 
 
 class Product(models.Model):
+    """ Model for product """
     name = models.CharField(max_length=200)
     description = models.TextField()
     store = models.CharField(max_length=200)
@@ -139,6 +140,8 @@ class Product(models.Model):
 
 
 class Category(models.Model):
+    """ Model for categories """
+
     name = models.CharField(max_length=200)
     url_product = models.URLField()
     api_id = models.CharField(max_length=200)
