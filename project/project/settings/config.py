@@ -189,5 +189,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 if os.environ.get('ENV'):
-    EMAIL_HOST_USER = os.environ['USER_EMAIL']
-    EMAIL_HOST_PASSWORD = os.environ['PASS_EMAIL']
+    if os.environ['ENV'] == 'PROD':
+        EMAIL_HOST_USER = os.environ['USER_EMAIL']
+        EMAIL_HOST_PASSWORD = os.environ['PASS_EMAIL']
