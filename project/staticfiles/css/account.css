@@ -1,0 +1,62 @@
+header.masthead-account {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/photo2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+header.masthead-account h1 {
+    font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+    header.masthead-account {
+        height: 69%;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+    header.masthead-account p {
+        font-size: 1.15rem;
+    }
+    header.masthead-account h1 {
+        font-size: 3rem;
+    }
+}
+
+.my_substitutes .card {
+    cursor: pointer;
+}
+
+.my_substitutes .card img {
+    height: 300px !important;
+    width: 268px !important;
+}
+
+.my_substitutes .card span {
+    background-color: var(--main-pb-color);
+    position: absolute;
+    border: solid 1px black;
+    height: 2.8rem;
+    width: 2.8rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    color: white;
+}
+
+ul {
+    padding: 30px;
+    margin-bottom: 0 !important;
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+label[for=id_email] {
+    display: none !important;
+}
