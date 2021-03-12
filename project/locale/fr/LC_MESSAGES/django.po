@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 12:21+0100\n"
+"POT-Creation-Date: 2021-03-12 11:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -252,7 +252,7 @@ msgid "You do not have an account ? It is by"
 msgstr "Vous n'avez pas de compte ? C'est par"
 
 #: product/templates/product/substitutes.html:31
-#: user/templates/user/login.html:22
+#: user/templates/user/login.html:22 user/templates/user/login.html:23
 msgid "here"
 msgstr "ici"
 
@@ -264,7 +264,11 @@ msgstr "Votre produit a bien été sauvegardé."
 msgid "You can replace this food with:"
 msgstr "Vous pouvez remplacer cet aliment par : "
 
-#: product/templates/product/substitutes.html:70
+#: product/templates/product/substitutes.html:59
+msgid "Displayed : "
+msgstr "Affiché : "
+
+#: product/templates/product/substitutes_loop.html:14
 msgid " Save"
 msgstr " Sauvegarder"
 
@@ -290,11 +294,11 @@ msgstr "Espagnol"
 
 #: project/settings/config.py:159
 msgid "Italian"
-msgstr ""
+msgstr "Italien"
 
 #: project/settings/config.py:160
 msgid "Arab"
-msgstr ""
+msgstr "Arabe"
 
 #: user/forms.py:16
 msgid "Username"
@@ -328,6 +332,10 @@ msgstr "être informé d'une V2 du site ?"
 #: user/templates/user/login_form.html:16
 msgid "Sign in"
 msgstr "Se connecter"
+
+#: user/templates/user/login.html:23
+msgid "Forgot your password ? click"
+msgstr "Mot de passe oublié ? clique"
 
 #: user/templates/user/login_form.html:19
 msgid "Your username and password do not match."
@@ -368,6 +376,46 @@ msgstr "Aucun substituts enregistrés."
 #: user/templates/user/my_substitutes.html:47
 msgid "Search for products: "
 msgstr "Rechercher des produits : "
+
+#: user/templates/user/password_reset.html:4
+#: user/templates/user/password_reset.html:11
+msgid "Forgot your password?"
+msgstr "Mot de passe oublié ?"
+
+#: user/templates/user/password_reset.html:21
+msgid ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+msgstr "Entrez votre adresse e-mail ci-dessous et nous vous enverrons par e-mail des instructions pour en définir une"
+"nouvelle."
+
+#: user/templates/user/password_reset_complete.html:4
+#: user/templates/user/password_reset_complete.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "Password validate"
+msgstr "Mot de passe"
+
+#: user/templates/user/password_reset_confirm.html:4
+#: user/templates/user/password_reset_confirm.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "New password"
+msgstr "Mot de passe"
+
+#: user/templates/user/password_reset_done.html:4
+#, fuzzy
+#| msgid "Email"
+msgid "Sent Email"
+msgstr "Email"
+
+#: user/templates/user/password_reset_done.html:11
+msgid "Sent email"
+msgstr "E-mail envoyé"
+
+#: user/templates/user/password_reset_done.html:21
+msgid "An email has been sent with instructions to reset your password."
+msgstr "Un e-mail a été envoyé avec des instructions pour réinitialiser votre mot de passe."
 
 #: user/templates/user/register.html:4 user/templates/user/register.html:12
 msgid "I create my account"

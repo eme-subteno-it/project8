@@ -75,3 +75,7 @@ header.masthead-account h1 {
     background-color: var(--main-pb-color) !important;
     border-color: var(--main-pb-color) !important;
 }
+.container-filter p {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}

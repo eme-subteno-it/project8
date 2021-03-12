@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 12:21+0100\n"
+"POT-Creation-Date: 2021-03-12 11:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,6 +199,18 @@ msgstr "السكريات في الكمية"
 msgid "Salt in quantity"
 msgstr "ملح في الكمية"
 
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "moderate"
+msgstr "معتدل"
+
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "low"
+msgstr "قليل"
+
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "high"
+msgstr "متوسط"
+
 #: product/templates/product/product.html:48
 msgid "See the OpenFoodFacts file"
 msgstr "انظر ملف OpenFoodFacts"
@@ -233,7 +245,7 @@ msgid "You do not have an account ? It is by"
 msgstr "لا يوجد لديك حساب ؟ من خلال"
 
 #: product/templates/product/substitutes.html:31
-#: user/templates/user/login.html:22
+#: user/templates/user/login.html:22 user/templates/user/login.html:23
 msgid "here"
 msgstr "هنا"
 
@@ -245,7 +257,11 @@ msgstr "تم حفظ المنتج الخاص بك."
 msgid "You can replace this food with:"
 msgstr "يمكنك استبدال هذا الطعام بـ:"
 
-#: product/templates/product/substitutes.html:70
+#: product/templates/product/substitutes.html:59
+msgid "Displayed : "
+msgstr "عرض :"
+
+#: product/templates/product/substitutes_loop.html:14
 msgid " Save"
 msgstr "يحفظ "
 
@@ -271,11 +287,11 @@ msgstr "الأسبانية"
 
 #: project/settings/config.py:159
 msgid "Italian"
-msgstr ""
+msgstr "إيطالي"
 
 #: project/settings/config.py:160
 msgid "Arab"
-msgstr ""
+msgstr "عرب"
 
 #: user/forms.py:16
 msgid "Username"
@@ -309,6 +325,10 @@ msgstr "يكون على علم V2 من الموقع؟"
 #: user/templates/user/login_form.html:16
 msgid "Sign in"
 msgstr "تسجيل الدخول"
+
+#: user/templates/user/login.html:23
+msgid "Forgot your password ? click"
+msgstr "نسيت رقمك السري ؟ انقر"
 
 #: user/templates/user/login_form.html:19
 msgid "Your username and password do not match."
@@ -349,6 +369,46 @@ msgstr "لا توجد بدائل مسجلة."
 #: user/templates/user/my_substitutes.html:47
 msgid "Search for products: "
 msgstr "البحث عن المنتجات: "
+
+#: user/templates/user/password_reset.html:4
+#: user/templates/user/password_reset.html:11
+msgid "Forgot your password?"
+msgstr "نسيت رقمك السري؟"
+
+#: user/templates/user/password_reset.html:21
+msgid ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+msgstr "أدخل عنوان بريدك الإلكتروني أدناه ، وسنرسل إليك تعليمات عبر البريد الإلكتروني لإعداد"
+"جديد."
+
+#: user/templates/user/password_reset_complete.html:4
+#: user/templates/user/password_reset_complete.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "Password validate"
+msgstr "كلمة المرور"
+
+#: user/templates/user/password_reset_confirm.html:4
+#: user/templates/user/password_reset_confirm.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "New password"
+msgstr "كلمة المرور"
+
+#: user/templates/user/password_reset_done.html:4
+#, fuzzy
+#| msgid "Email"
+msgid "Sent Email"
+msgstr "بريد الالكتروني"
+
+#: user/templates/user/password_reset_done.html:11
+msgid "Sent email"
+msgstr "البريد الالكتروني المرسل"
+
+#: user/templates/user/password_reset_done.html:21
+msgid "An email has been sent with instructions to reset your password."
+msgstr "تم إرسال بريد إلكتروني مع تعليمات لإعادة تعيين كلمة المرور الخاصة بك."
 
 #: user/templates/user/register.html:4 user/templates/user/register.html:12
 msgid "I create my account"

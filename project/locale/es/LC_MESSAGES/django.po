@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 12:21+0100\n"
+"POT-Creation-Date: 2021-03-12 11:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,6 +204,18 @@ msgstr "Azúcares en cantidad"
 msgid "Salt in quantity"
 msgstr "Sal en cantidad"
 
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "moderate"
+msgstr "Moderada"
+
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "low"
+msgstr "baja"
+
+#: product/templates/product/product.html:30 product/templates/product/product.html:34 product/templates/product/product.html:38 product/templates/product/product.html:42
+msgid "high"
+msgstr "alta"
+
 #: product/templates/product/product.html:48
 msgid "See the OpenFoodFacts file"
 msgstr "Ver el archivo OpenFoodFacts"
@@ -238,7 +250,7 @@ msgid "You do not have an account ? It is by"
 msgstr "¿No tienes cuenta? Es por"
 
 #: product/templates/product/substitutes.html:31
-#: user/templates/user/login.html:22
+#: user/templates/user/login.html:22 user/templates/user/login.html:23
 msgid "here"
 msgstr "aquí"
 
@@ -250,7 +262,11 @@ msgstr "Su producto ha sido guardado."
 msgid "You can replace this food with:"
 msgstr "Puede reemplazar este alimento con:"
 
-#: product/templates/product/substitutes.html:70
+#: product/templates/product/substitutes.html:59
+msgid "Displayed : "
+msgstr "Mostrado:"
+
+#: product/templates/product/substitutes_loop.html:14
 msgid " Save"
 msgstr " Salvar"
 
@@ -315,6 +331,10 @@ msgstr "¿Ser informada de una V2 del sitio?"
 msgid "Sign in"
 msgstr "Registrarse"
 
+#: user/templates/user/login.html:23
+msgid "Forgot your password ? click"
+msgstr "¿Olvidaste tu contraseña ? hacer clic"
+
 #: user/templates/user/login_form.html:19
 msgid "Your username and password do not match."
 msgstr "Tu nombre de usuario y contraseña no coinciden."
@@ -354,6 +374,46 @@ msgstr "No hay suplentes registrados."
 #: user/templates/user/my_substitutes.html:47
 msgid "Search for products: "
 msgstr "Buscar productos: "
+
+#: user/templates/user/password_reset.html:4
+#: user/templates/user/password_reset.html:11
+msgid "Forgot your password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+#: user/templates/user/password_reset.html:21
+msgid ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+msgstr "Ingrese su dirección de correo electrónico a continuación y le enviaremos las instrucciones para configurar un"
+"uno nuevo."
+
+#: user/templates/user/password_reset_complete.html:4
+#: user/templates/user/password_reset_complete.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "Password validate"
+msgstr "Contraseña"
+
+#: user/templates/user/password_reset_confirm.html:4
+#: user/templates/user/password_reset_confirm.html:11
+#, fuzzy
+#| msgid "Password"
+msgid "New password"
+msgstr "Contraseña"
+
+#: user/templates/user/password_reset_done.html:4
+#, fuzzy
+#| msgid "Email"
+msgid "Sent Email"
+msgstr "Correo electrónico"
+
+#: user/templates/user/password_reset_done.html:11
+msgid "Sent email"
+msgstr "Correo electrónico"
+
+#: user/templates/user/password_reset_done.html:21
+msgid "An email has been sent with instructions to reset your password."
+msgstr "Se ha enviado un correo electrónico con instrucciones para restablecer su contraseña."
 
 #: user/templates/user/register.html:4 user/templates/user/register.html:12
 msgid "I create my account"
