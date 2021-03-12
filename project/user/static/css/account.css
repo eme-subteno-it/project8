@@ -46,3 +46,17 @@ header.masthead-account h1 {
     right: -20px;
     color: white;
 }
+
+ul {
+    padding: 30px;
+    margin-bottom: 0 !important;
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+label[for=id_email] {
+    display: none !important;
+}

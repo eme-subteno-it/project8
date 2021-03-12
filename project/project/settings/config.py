@@ -177,3 +177,11 @@ AUTHENTICATION_BACKENDS = ['user.backends.EmailBackend']
 if os.environ.get('ENV'):
     if os.environ['ENV'] == 'PROD':
         django_heroku.settings(locals())
+
+# Server SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ['USER_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['PASS_EMAIL']
