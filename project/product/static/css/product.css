@@ -58,3 +58,20 @@ header.masthead-account h1 {
 .nutrient_levels img {
     margin-right: 5px;
 }
+
+.btn-nb {
+    margin-left: 5px;
+    color: var(--main-pb-color) !important;
+    border-color: var(--main-pb-color) !important;
+}
+.btn-nb:hover {
+    color: #fff !important;
+    background-color: var(--main-pb-color) !important;
+    border-color: var(--main-pb-color) !important;
+}
+
+.btn-nb.active {
+    color: #fff !important;
+    background-color: var(--main-pb-color) !important;
+    border-color: var(--main-pb-color) !important;
+}

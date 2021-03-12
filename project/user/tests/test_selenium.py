@@ -6,7 +6,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from django.conf import settings
 from user.models import User
 from selenium.webdriver.chrome.options import Options
 
@@ -20,7 +19,10 @@ class RegisterTests(StaticLiveServerTestCase):
     """ Class to test the form register account """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+        self.selenium = webdriver.Chrome(
+            ChromeDriverManager().install(),
+            chrome_options=chrome_options
+        )
         self.wait = WebDriverWait(self.selenium, 1000)
         super(RegisterTests, self).setUp()
 
@@ -74,7 +76,10 @@ class LoginTests(StaticLiveServerTestCase):
     """ Class to test the form login account in the web """
 
     def setUp(self):
-        self.selenium = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+        self.selenium = webdriver.Chrome(
+            ChromeDriverManager().install(),
+            chrome_options=chrome_options
+        )
         self.wait = WebDriverWait(self.selenium, 1000)
         User.objects.create_user(
             username='test_username',
@@ -119,3 +124,43 @@ class LoginTests(StaticLiveServerTestCase):
         time.sleep(2)
         redirection_url = self.selenium.current_url
         self.assertEqual(self.live_server_url + '/my/account/', redirection_url)
+
+
+class PasswordResetTests(StaticLiveServerTestCase):
+    """ Class to test the form password reset """
+
+    def setUp(self):
+        self.selenium = webdriver.Chrome(
+            ChromeDriverManager().install(),
+            chrome_options=chrome_options
+        )
+        self.wait = WebDriverWait(self.selenium, 1000)
+        super(PasswordResetTests, self).setUp()
+
+    def tearDown(self):
+        self.selenium.quit()
+        super(PasswordResetTests, self).tearDown()
+
+    def test_password_reset_click(self):
+        self.selenium.get('%s%s' % (self.live_server_url, '/reset_password/'))
+        email_input = self.selenium.find_element_by_id("id_email")
+        email_input.send_keys('email@test.com')
+        submission_button = self.selenium.find_element_by_id("password_reset_btn")
+
+        # Wait until the response is received
+        self.wait.until(lambda driver: self.selenium.find_element_by_tag_name('body'))
+        ActionChains(self.selenium).click(submission_button).perform()
+
+        time.sleep(2)
+        redirection_url = self.selenium.current_url
+        self.assertEqual(self.live_server_url + '/reset_password_sent/', redirection_url)
+
+    def test_password_reset_keyboard(self):
+        self.selenium.get('%s%s' % (self.live_server_url, '/reset_password/'))
+        email_input = self.selenium.find_element_by_id("id_email")
+        email_input.send_keys('email@test.com')
+
+        email_input.send_keys(Keys.ENTER)
+        time.sleep(2)
+        redirection_url = self.selenium.current_url
+        self.assertEqual(self.live_server_url + '/reset_password_sent/', redirection_url)
