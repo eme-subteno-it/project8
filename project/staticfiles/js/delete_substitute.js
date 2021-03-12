@@ -8,12 +8,13 @@
             e.preventDefault();
 
             var dataForm =  $(this).serializeArray()
-            var dataInput = dataForm[0]
+            var csrftokenInput = dataForm[0];
+            var dataInput = dataForm[1];
 
             let data = {'product_id': dataInput.value}
 
             $.ajax({
-                headers: {'X-CSRFToken': csrftoken},
+                headers: {'X-CSRFToken': csrftokenInput.value},
                 method: 'POST',
                 url: '/delete_substitute/',
                 data: data,

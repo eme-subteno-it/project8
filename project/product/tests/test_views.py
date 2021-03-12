@@ -53,6 +53,9 @@ class SubstitutesViewTest(TestCase):
         This class create a product in database test
         and a user to test the result and saving substitutes.
     """
+
+    fixtures = ['substitutes.json']
+
     def setUp(self):
         self.user = User.objects.create_user(
             username='test_username',
@@ -168,6 +171,20 @@ class SubstitutesViewTest(TestCase):
         response = self.client.get('/search/substitutes/%s/' % self.product.id)
         substitutes = response.context['substitutes']
         self.assertEqual(substitutes, sorted(substitutes, key=attrgetter('nutriscore_grade')))
+
+    # def test_display_substitutes_list(self):
+    #     response = self.client.post('/change_number_list/', {'product_id': 1, 'number': 10})
+    #     self.assertTemplateUsed(response, 'product/substitutes_loop.html')
+    #     self.assertEqual(response.status_code, 200)
+
+    # def test_number_substitutes_list(self):
+    #     response = self.client.get('/search/substitutes/1/')
+    #     len_substitutes = len(response.context['substitutes'])
+
+    #     response_two = self.client.post('/change_number_list', {'product_id': 1, 'number': 10})
+
+    #     import pdb; pdb.set_trace();
+    #     len_substitutes_two = len(response_two.context['substitutes'])
 
 
 class ProductViewTest(TestCase):

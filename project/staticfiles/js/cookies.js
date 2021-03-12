@@ -31,7 +31,6 @@
         var expires = new Date();
         expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
         document.cookie = key + '=' + value + ';path=/' + ';expires=' + expires.toUTCString();
-        console.log('Je suis bien rentrée dans la fonction ')
     }
 
     /**

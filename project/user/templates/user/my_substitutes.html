@@ -31,6 +31,7 @@
                                     <p class="card-text">{{ product.name }}</p>
                                 </a>
                                 <form method="post" class="form-substitute-delete">
+                                    {% csrf_token %}
                                     <input type="hidden" name="product" value="{{ product.id }}">
                                     <button type="submit" class="btn btn-primary delete_substitute"><i class="fas fa-trash"></i>{% translate ' Delete' %}</button>
                                 </form>
