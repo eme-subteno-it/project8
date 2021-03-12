@@ -155,6 +155,9 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 LANGUAGES = (
     ('fr', gettext_noop('French')),
     ('en', gettext_noop('English')),
+    ('es', gettext_noop('Spanish')),
+    ('it', gettext_noop('Italian')),
+    ('ar', gettext_noop('Arab')),
 )
 
 

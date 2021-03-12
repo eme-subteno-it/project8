@@ -4,6 +4,8 @@ from django.views import View
 
 
 class IndexView(View):
+    """ Homepage views """
+
     template_name = 'home/index.html'
 
     def get(self, request):
@@ -11,6 +13,8 @@ class IndexView(View):
 
 
 class LegalNoticeView(View):
+    """ Legal Notice view """
+
     template_name = 'home/legal_notice.html'
 
     def get(self, request):

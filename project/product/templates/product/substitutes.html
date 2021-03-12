@@ -28,6 +28,7 @@
                 </div>
                 <div class="modal-body">
                     {% include 'user/login_form.html' %}
+                    <p>{% translate 'You do not have an account ? It is by' %} <a class="register_in_modal" href="{% url 'user:register' %}">{% translate 'here' %}</a>.</p>
                 </div>
             </div>
         </div>
