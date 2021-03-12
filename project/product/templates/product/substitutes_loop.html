@@ -1,0 +1,19 @@
+{% load i18n %}
+{% for substitute in substitutes %}
+    <div class="col-12 col-md-4 mb-5 text-center">
+        <div class="card mx-auto" style="width: 18rem;">
+            <img class="img img-fluid card-img-top" src="{{ substitute.image }}" alt="{{ substitute.name }}">
+            <div class="card-body">
+                <span>{{ substitute.nutriscore_grade|upper }}</span>
+                <a href="/product-{{ substitute.id }}">
+                    <p class="card-text">{{ substitute.name }}</p>
+                </a>
+                <form method="post" class="form-substitute-save">
+                    {% csrf_token %}
+                    <input type="hidden" name="substitute" value="{{ substitute.id }}">
+                    <button type="submit" class="btn btn-primary save_substitute"><i class="far fa-save"></i>{% translate ' Save' %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endfor %}

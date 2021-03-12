@@ -1,8 +1,8 @@
 """ All tests for the product views application """
+from operator import attrgetter
 from django.test import TestCase, override_settings
 from user.models import User
 from product.models import Product, Category
-from operator import attrgetter
 
 
 class SearchProductViewTest(TestCase):

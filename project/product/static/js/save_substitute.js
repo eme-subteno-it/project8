@@ -18,21 +18,20 @@
             }
             return cookieValue;
         }
-        var csrftoken = getCookie('csrftoken');
 
         // Save a substitute
         let form = $('.form-substitute-save');
 
-        function submitForm(e) {
+        window.submitForm = function (e) {
             e.preventDefault();
-
             var dataForm =  $(this).serializeArray()
-            var dataInput = dataForm[0]
+            var csrftokenInput = dataForm[0];
+            var dataInput = dataForm[1];
 
             let data = {'product_id': dataInput.value}
 
             $.ajax({
-                headers: {'X-CSRFToken': csrftoken},
+                headers: {'X-CSRFToken': csrftokenInput.value},
                 method: 'POST',
                 url: '/save_substitute/',
                 data: data,

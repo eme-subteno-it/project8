@@ -54,27 +54,22 @@
 <section class="result-search mt-5">
     <div class="container">
         <h2 class="text-center mb-5 mt-5">{% translate 'You can replace this food with:' %}</h2>
-        <div class="row">
-            {% for substitute in substitutes %}
-                <div class="col-12 col-md-4 mb-5 text-center">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img class="img img-fluid card-img-top" src="{{ substitute.image }}" alt="{{ substitute.name }}">
-                        <div class="card-body">
-                            <span>{{ substitute.nutriscore_grade|upper }}</span>
-                            <a href="/product-{{ substitute.id }}">
-                                <p class="card-text">{{ substitute.name }}</p>
-                            </a>
-                            <form method="post" class="form-substitute-save">
-                                <input type="hidden" name="substitute" value="{{ substitute.id }}">
-                                <button type="submit" class="btn btn-primary save_substitute"><i class="far fa-save"></i>{% translate ' Save' %}</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="row justify-content-center mb-5 align-items-center" id="contain-filter">
+            <p>{% translate 'Displayed : ' %}</p>
+            <div class="btn btn-nb">10</div>
+            <div class="btn btn-nb">20</div>
+            <div class="btn btn-nb">30</div>
+            <div class="btn btn-nb">40</div>
+            <div class="btn btn-nb active">50</div>
+        </div>
+        <div class="row substitutes-cart">
+            {% include 'product/substitutes_loop.html' %}
         </div>
     </div>
 </section>
 {% endblock %}
 
-{% block js %}<script src="{% static 'js/save_substitute.js' %}"></script>{% endblock %}
+{% block js %}
+    <script src="{% static 'js/save_substitute.js' %}"></script>
+    <script src="{% static 'js/display_substitutes.js' %}"></script>
+{% endblock %}

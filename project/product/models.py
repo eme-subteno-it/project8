@@ -1,11 +1,12 @@
 """ Models Product and Category """
 import string
 import random
-from django.db import models
 from operator import attrgetter
+from django.db import models
 
 
 class Product(models.Model):
+    """ Model for product """
     name = models.CharField(max_length=200)
     description = models.TextField()
     store = models.CharField(max_length=200)
@@ -68,7 +69,7 @@ class Product(models.Model):
 
         return product
 
-    def calculate_substitutes(self):
+    def calculate_substitutes(self, substitute_number):
         """
         Method to calculate a substitute about the product choose by the user.
         The method search the best products by nutriscore and nutriscore grade.
@@ -94,8 +95,8 @@ class Product(models.Model):
                         if product not in all_substitutes:
                             all_substitutes.append(product)
 
-        if len(all_substitutes) > 30:
-            substitutes = random.sample(all_substitutes, 30)
+        if len(all_substitutes) > int(substitute_number):
+            substitutes = random.sample(all_substitutes, int(substitute_number))
         else:
             substitutes = random.sample(all_substitutes, len(all_substitutes))
 
@@ -139,6 +140,8 @@ class Product(models.Model):
 
 
 class Category(models.Model):
+    """ Model for categories """
+
     name = models.CharField(max_length=200)
     url_product = models.URLField()
     api_id = models.CharField(max_length=200)

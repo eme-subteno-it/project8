@@ -38,7 +38,7 @@ class Substitutes(View):
     def get(self, request, product_id):
         form = self.form_class
         product = get_object_or_404(Product, pk=product_id)
-        substitutes = product.calculate_substitutes()
+        substitutes = product.calculate_substitutes(50)
         context = {}
 
         query = request.GET.get('substitute_id')
@@ -56,6 +56,15 @@ class Substitutes(View):
 
     def post(self, request):
         """ Method to save a substitute in call Ajax """
+        number_list = request.POST.get('number')
+        if number_list:
+            product = get_object_or_404(Product, pk=request.POST.get('product_search_id'))
+            substitutes = product.calculate_substitutes(number_list)
+            context = {}
+            context['product'] = product
+            context['substitutes'] = substitutes
+
+            return render(request, 'product/substitutes_loop.html', context)
 
         if request.user.is_authenticated:
             query = request.POST.get('product_id')

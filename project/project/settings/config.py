@@ -173,20 +173,7 @@ AUTH_USER_MODEL = "user.User"
 LOGIN_REDIRECT_URL = 'user:my_account'
 AUTHENTICATION_BACKENDS = ['user.backends.EmailBackend']
 
-"""
-    FUNCTIONALS TESTS_
-
-    To get the chromedriver : https://chromedriver.chromium.org/
-
-    Change SELENIUM_DRIVER_PATH variable by your path if you can test
-    - MACOS/LINUX = '/Your/path/driver/chromedriver'
-    - WINDOWS = '/Your/path/driver/chromedriver.exe'
-"""
-SELENIUM_DRIVER = 'Chrome'
 
 if os.environ.get('ENV'):
-    if os.environ['ENV'] != 'PROD':
-        SELENIUM_DRIVER_PATH = os.environ['DRIVER_PATH']
-
     if os.environ['ENV'] == 'PROD':
         django_heroku.settings(locals())
