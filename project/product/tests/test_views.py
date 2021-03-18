@@ -172,19 +172,12 @@ class SubstitutesViewTest(TestCase):
         substitutes = response.context['substitutes']
         self.assertEqual(substitutes, sorted(substitutes, key=attrgetter('nutriscore_grade')))
 
-    # def test_display_substitutes_list(self):
-    #     response = self.client.post('/change_number_list/', {'product_id': 1, 'number': 10})
-    #     self.assertTemplateUsed(response, 'product/substitutes_loop.html')
-    #     self.assertEqual(response.status_code, 200)
-
-    # def test_number_substitutes_list(self):
-    #     response = self.client.get('/search/substitutes/1/')
-    #     len_substitutes = len(response.context['substitutes'])
-
-    #     response_two = self.client.post('/change_number_list', {'product_id': 1, 'number': 10})
-
-    #     import pdb; pdb.set_trace();
-    #     len_substitutes_two = len(response_two.context['substitutes'])
+    def test_change_number_substitutes_list(self):
+        product_master = Product.objects.get(pk=1)
+        response = self.client.post('/change_number_list/', {'product_search_id': product_master.id, 'number': 10})
+        self.assertTemplateUsed(response, 'product/substitutes_loop.html')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['substitutes']), 10)
 
 
 class ProductViewTest(TestCase):
