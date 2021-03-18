@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
+from product.models import Product
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -32,7 +33,8 @@ class SubstitutesTests(StaticLiveServerTestCase):
         super(SubstitutesTests, self).tearDown()
 
     def test_click_number_substitutes_list(self):
-        self.selenium.get('%s%s' % (self.live_server_url, '/search/substitutes/1/'))
+        product = Product.objects.get(pk=1)
+        self.selenium.get('%s%s' % (self.live_server_url, '/search/substitutes/%s/' % product.id))
 
         number_btn = self.selenium.find_element_by_class_name('btn-nb')
         number_btn.click()
