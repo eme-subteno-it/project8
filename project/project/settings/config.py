@@ -159,6 +159,7 @@ LANGUAGES = (
     ('it', gettext_noop('Italian')),
     ('ar', gettext_noop('Arab')),
 )
+# HTTP_ACCEPT_LANGUAGE='fr'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -184,11 +185,9 @@ if os.environ.get('ENV'):
 
 # Server SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = os.environ['EMAIL_HOST']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-if os.environ.get('ENV'):
-    if os.environ['ENV'] == 'PROD':
-        EMAIL_HOST_USER = os.environ['USER_EMAIL']
-        EMAIL_HOST_PASSWORD = os.environ['PASS_EMAIL']
+EMAIL_HOST_USER = os.environ['USER_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['PASS_EMAIL']
+DEFAULT_FROM_EMAIL = os.environ['USER_EMAIL']
