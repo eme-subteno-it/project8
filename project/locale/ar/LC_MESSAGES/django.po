@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 11:46+0100\n"
+"POT-Creation-Date: 2021-04-09 16:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -354,19 +354,19 @@ msgstr "استبدل"
 msgid "saved"
 msgstr "تم الحفظ"
 
-#: user/templates/user/my_substitutes.html:35
+#: user/templates/user/my_substitutes.html:36
 msgid " Delete"
 msgstr "حذف "
 
-#: user/templates/user/my_substitutes.html:43
+#: user/templates/user/my_substitutes.html:44
 msgid "Your substitutes saved"
 msgstr "تم حفظ البدائل الخاصة بك"
 
-#: user/templates/user/my_substitutes.html:46
+#: user/templates/user/my_substitutes.html:47
 msgid "No registered substitutes."
 msgstr "لا توجد بدائل مسجلة."
 
-#: user/templates/user/my_substitutes.html:47
+#: user/templates/user/my_substitutes.html:48
 msgid "Search for products: "
 msgstr "البحث عن المنتجات: "
 
@@ -379,8 +379,15 @@ msgstr "نسيت رقمك السري؟"
 msgid ""
 "Enter your email address below, and we'll email instructions for setting a "
 "new one."
-msgstr "أدخل عنوان بريدك الإلكتروني أدناه ، وسنرسل إليك تعليمات عبر البريد الإلكتروني لإعداد"
-"جديد."
+msgstr ""
+"أدخل عنوان بريدك الإلكتروني أدناه ، وسنرسل إليك تعليمات عبر البريد "
+"الإلكتروني لإعدادجديد."
+
+#: user/templates/user/password_reset.html:28
+#, fuzzy
+#| msgid "Password"
+msgid "Password reset"
+msgstr "كلمة المرور"
 
 #: user/templates/user/password_reset_complete.html:4
 #: user/templates/user/password_reset_complete.html:11
@@ -389,11 +396,29 @@ msgstr "أدخل عنوان بريدك الإلكتروني أدناه ، وسن
 msgid "Password validate"
 msgstr "كلمة المرور"
 
+#: user/templates/user/password_reset_complete.html:22
+#, fuzzy
+#| msgid "Your product has been saved."
+msgid "Your password has been set."
+msgstr "تم حفظ المنتج الخاص بك."
+
+#: user/templates/user/password_reset_complete.html:24
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign In Here"
+msgstr "تسجيل الدخول"
+
 #: user/templates/user/password_reset_confirm.html:4
 #: user/templates/user/password_reset_confirm.html:11
 #, fuzzy
 #| msgid "Password"
 msgid "New password"
+msgstr "كلمة المرور"
+
+#: user/templates/user/password_reset_confirm.html:27
+#, fuzzy
+#| msgid "Password"
+msgid "Reset Password"
 msgstr "كلمة المرور"
 
 #: user/templates/user/password_reset_done.html:4

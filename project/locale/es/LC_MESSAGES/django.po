@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 11:46+0100\n"
+"POT-Creation-Date: 2021-04-09 16:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -359,19 +359,19 @@ msgstr "sustituir"
 msgid "saved"
 msgstr "salvado"
 
-#: user/templates/user/my_substitutes.html:35
+#: user/templates/user/my_substitutes.html:36
 msgid " Delete"
 msgstr " Borrar"
 
-#: user/templates/user/my_substitutes.html:43
+#: user/templates/user/my_substitutes.html:44
 msgid "Your substitutes saved"
 msgstr "Tus sustitutos guardados"
 
-#: user/templates/user/my_substitutes.html:46
+#: user/templates/user/my_substitutes.html:47
 msgid "No registered substitutes."
 msgstr "No hay suplentes registrados."
 
-#: user/templates/user/my_substitutes.html:47
+#: user/templates/user/my_substitutes.html:48
 msgid "Search for products: "
 msgstr "Buscar productos: "
 
@@ -384,8 +384,15 @@ msgstr "¿Olvidaste tu contraseña?"
 msgid ""
 "Enter your email address below, and we'll email instructions for setting a "
 "new one."
-msgstr "Ingrese su dirección de correo electrónico a continuación y le enviaremos las instrucciones para configurar un"
-"uno nuevo."
+msgstr ""
+"Ingrese su dirección de correo electrónico a continuación y le enviaremos "
+"las instrucciones para configurar ununo nuevo."
+
+#: user/templates/user/password_reset.html:28
+#, fuzzy
+#| msgid "Password"
+msgid "Password reset"
+msgstr "Contraseña"
 
 #: user/templates/user/password_reset_complete.html:4
 #: user/templates/user/password_reset_complete.html:11
@@ -394,11 +401,29 @@ msgstr "Ingrese su dirección de correo electrónico a continuación y le enviar
 msgid "Password validate"
 msgstr "Contraseña"
 
+#: user/templates/user/password_reset_complete.html:22
+#, fuzzy
+#| msgid "Your product has been saved."
+msgid "Your password has been set."
+msgstr "Su producto ha sido guardado."
+
+#: user/templates/user/password_reset_complete.html:24
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign In Here"
+msgstr "Registrarse"
+
 #: user/templates/user/password_reset_confirm.html:4
 #: user/templates/user/password_reset_confirm.html:11
 #, fuzzy
 #| msgid "Password"
 msgid "New password"
+msgstr "Contraseña"
+
+#: user/templates/user/password_reset_confirm.html:27
+#, fuzzy
+#| msgid "Password"
+msgid "Reset Password"
 msgstr "Contraseña"
 
 #: user/templates/user/password_reset_done.html:4
@@ -413,7 +438,9 @@ msgstr "Correo electrónico"
 
 #: user/templates/user/password_reset_done.html:21
 msgid "An email has been sent with instructions to reset your password."
-msgstr "Se ha enviado un correo electrónico con instrucciones para restablecer su contraseña."
+msgstr ""
+"Se ha enviado un correo electrónico con instrucciones para restablecer su "
+"contraseña."
 
 #: user/templates/user/register.html:4 user/templates/user/register.html:12
 msgid "I create my account"
