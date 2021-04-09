@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.db.models.query import QuerySet
 from user.models import User
 from product.models import Product
+from django.core import mail
 
 
 class RegisterViewTest(TestCase):
@@ -190,3 +191,19 @@ class LogoutAccountViewTest(TestCase):
         response = self.client.get('/logout/')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/')
+
+
+class PasswordResetView(TestCase):
+
+    def test_send_email(self):
+        mail.send_mail(
+            'Subject here', 'Here is the message.',
+            'from@email.com', ['email_to@test.com'],
+            fail_silently=False,
+        )
+
+        # Test that one message has been sent.
+        self.assertEqual(len(mail.outbox), 1)
+
+        # Verify that the subject of the first message is correct.
+        self.assertEqual(mail.outbox[0].subject, 'Subject here')
