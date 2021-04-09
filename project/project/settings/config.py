@@ -159,7 +159,6 @@ LANGUAGES = (
     ('it', gettext_noop('Italian')),
     ('ar', gettext_noop('Arab')),
 )
-# HTTP_ACCEPT_LANGUAGE='fr'
 
 
 # Static files (CSS, JavaScript, Images)
