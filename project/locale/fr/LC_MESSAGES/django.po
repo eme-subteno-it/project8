@@ -388,39 +388,29 @@ msgid ""
 "new one."
 msgstr ""
 "Entrez votre adresse e-mail ci-dessous et nous vous enverrons par e-mail des "
-"instructions pour en définir unenouvelle."
+"instructions pour en définir une nouvelle."
 
 #: user/templates/user/password_reset.html:28
-#, fuzzy
-#| msgid "Password"
 msgid "Password reset"
 msgstr "Réinitialiser Mot de passe"
 
 #: user/templates/user/password_reset_complete.html:4
 #: user/templates/user/password_reset_complete.html:11
-#, fuzzy
-#| msgid "Password"
 msgid "Password validate"
-msgstr "Mot de passe"
+msgstr "Mot de passe validé"
 
 #: user/templates/user/password_reset_complete.html:22
-#, fuzzy
-#| msgid "Your product has been saved."
 msgid "Your password has been set."
-msgstr "Votre produit a bien été sauvegardé."
+msgstr "Votre mot de passe a bien été sauvegardé."
 
 #: user/templates/user/password_reset_complete.html:24
-#, fuzzy
-#| msgid "Sign in"
 msgid "Sign In Here"
-msgstr "Se connecter"
+msgstr "Se connecter ici"
 
 #: user/templates/user/password_reset_confirm.html:4
 #: user/templates/user/password_reset_confirm.html:11
-#, fuzzy
-#| msgid "Password"
 msgid "New password"
-msgstr "Mot de passe"
+msgstr "Nouveau mot de passe"
 
 #: user/templates/user/password_reset_confirm.html:27
 #, fuzzy
@@ -429,10 +419,8 @@ msgid "Reset Password"
 msgstr "Mot de passe"
 
 #: user/templates/user/password_reset_done.html:4
-#, fuzzy
-#| msgid "Email"
 msgid "Sent Email"
-msgstr "Email"
+msgstr "Email envoyé"
 
 #: user/templates/user/password_reset_done.html:11
 msgid "Sent email"
